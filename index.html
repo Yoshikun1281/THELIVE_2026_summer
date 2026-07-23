@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LIVE 2026夏 | 筑波大学軽音合同ライブ</title>
+    <!-- Google Fonts (Futura style fallback Jost + Noto Sans JP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            bg: '#FAF9F5',       // Soft Warm Cream
+                            card: '#FFFFFF',     // White
+                            sky: '#E0F2FE',      // Bright Soft Sky Blue
+                            mint: '#D8F3DC',     // Soft Mint Green
+                            coral: '#FFE5D9',    // Soft Peach
+                            yellow: '#FEF9C3',   // Soft Lemon Yellow
+                            pink: '#FCE7F3',     // Soft Pastel Pink
+                            text: '#1E293B',     // Deep Slate
+                            muted: '#64748B',    // Muted Slate
+                            accent: '#0EA5E9'    // Bright Water Blue
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Futura', 'Jost', '"Noto Sans JP"', 'sans-serif'],
+                        en: ['Futura', 'Jost', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #FAF9F5;
+            color: #1E293B;
+            font-family: 'Futura', 'Jost', 'Noto Sans JP', sans-serif;
+        }
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(250, 249, 245, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .pastel-gradient {
+            background: linear-gradient(135deg, #E0F2FE 0%, #D8F3DC 50%, #FFE5D9 100%);
+        }
+        /* Custom card glow transitions */
+        .circle-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .circle-card:hover {
+            transform: translateY(-6px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-pastel-text selection:bg-pastel-sky">
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-slate-200/70 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="font-en font-extrabold text-2xl tracking-tight text-pastel-accent group-hover:opacity-80 transition">THE LIVE 2026夏</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6 font-en font-bold text-sm tracking-wide">
+                <a href="#news" class="hover:text-pastel-accent transition">NEWS</a>
+                <a href="#forms" class="hover:text-pastel-accent transition">FORMS</a>
+                <a href="#flyer" class="hover:text-pastel-accent transition">FLYER</a>
+                <a href="#about" class="hover:text-pastel-accent transition">ABOUT</a>
+                <a href="#timetable" class="hover:text-pastel-accent transition">TIMETABLE</a>
+                <a href="#goods" class="hover:text-pastel-accent transition">GOODS</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#forms" class="bg-pastel-accent text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-sky-600 transition shadow-sm">
+                    エントリー / 申請
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-pastel-bg border-b border-gray-200 px-6 py-4 space-y-3 font-medium">
+            <a href="#news" class="block py-2 hover:text-pastel-accent mobile-link">NEWS / お知らせ</a>
+            <a href="#forms" class="block py-2 hover:text-pastel-accent mobile-link">FORMS / 各種申請</a>
+            <a href="#flyer" class="block py-2 hover:text-pastel-accent mobile-link">FLYER / フライヤー</a>
+            <a href="#about" class="block py-2 hover:text-pastel-accent mobile-link">ABOUT / 概要</a>
+            <a href="#timetable" class="block py-2 hover:text-pastel-accent mobile-link">TIMETABLE / タイムテーブル</a>
+            <a href="#goods" class="block py-2 hover:text-pastel-accent mobile-link">GOODS / グッズ</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="pt-28 pb-16 md:pt-36 md:pb-24 px-4 relative overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] pastel-gradient rounded-full blur-3xl opacity-75 -z-10"></div>
+
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <!-- Title, Date & Place -->
+            <div class="space-y-4">
+                <h1 class="font-en text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-pastel-accent">
+                    THE LIVE 2026夏
+                </h1>
+
+                <!-- DATE & PLACE closely integrated with the title -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 font-bold text-slate-700 text-base md:text-lg pt-1">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-days text-pastel-accent"></i>
+                        <span class="font-en font-extrabold">2026.8.8 [Sat] - 8.10 [Mon]</span>
+                    </div>
+                    <span class="hidden sm:inline text-slate-300">|</span>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-pastel-accent"></i>
+                        <span>文化系サークル館 A室</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#forms" class="bg-pastel-accent text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-lg hover:bg-sky-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square"></i> 各種エントリー / フォーム
+                </a>
+                <a href="#timetable" class="bg-white text-pastel-text border border-slate-200 px-8 py-3.5 rounded-full font-bold text-sm shadow-sm hover:bg-slate-50 transition flex items-center gap-2">
+                    <i class="fa-solid fa-table-list"></i> タイムテーブルを見る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWS SECTION ===== -->
+    <section id="news" class="py-12 bg-white border-y border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">NEWS <span class="text-base md:text-lg font-normal text-slate-500 font-sans ml-2">/ お知らせ</span></h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- News Item 1 -->
+                <div class="bg-pastel-bg p-5 rounded-2xl border border-slate-200 hover:shadow-sm transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="bg-pastel-sky font-bold px-2.5 py-0.5 rounded-md text-sky-900 font-en">INFO</span>
+                            <span class="text-slate-400 font-en font-bold">2026.07.20</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800">試しにWebサイトを作ってみました！</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            THE LIVE 2026夏の特設Webサイトを試験オープンしました。今後の更新情報やタイムテーブル等は本サイトで発信します！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORMS SECTION ===== -->
+    <section id="forms" class="py-16 bg-pastel-bg border-b border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">FORMS <span class="text-base md:text-lg font-normal text-slate-500 font-sans ml-2">/ 各種申請・フォーム</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Form Item 1: 本エントリー -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="bg-pastel-sky font-bold px-2.5 py-0.5 rounded-md text-sky-900 font-en">ENTRY</span>
+                            <span class="text-slate-400 font-en font-bold">2026.07.25</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800">THE LIVE本エントリー</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            THE LIVE 2026夏の本エントリーフォームです。出演するバンドはエントリーしてください。締切7/31です！
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/1jGellBJSbbMmjYsaXPSYq_ebgKTvVsuszRnK60db_Sc/edit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-pastel-bg border border-slate-300 py-2.5 rounded-xl text-xs font-bold text-sky-600 hover:bg-sky-50 transition mt-4">
+                        本エントリーフォーム <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Form Item 2: 打ち上げフォーム -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="bg-pastel-pink font-bold px-2.5 py-0.5 rounded-md text-pink-900 font-en">PARTY</span>
+                            <span class="text-slate-400 font-en font-bold">2026.07.25</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800">THE LIVE打ち上げフォーム</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            THE LIVE 打ち上げの参加申請フォームです。8/10 21時半~@未定です。締切8/5です！！
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/1OOVlKrHNaHZslkh_Fv3CXgJ2QQNrmqA6iFYJV5Cqbb4/edit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-pastel-bg border border-slate-300 py-2.5 rounded-xl text-xs font-bold text-pink-600 hover:bg-pink-50 transition mt-4">
+                        打ち上げフォームを開く <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Form Item 3: プレエントリー -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="bg-pastel-coral font-bold px-2.5 py-0.5 rounded-md text-slate-800 font-en">PRE-ENTRY</span>
+                            <span class="text-slate-400 font-en font-bold">2026.06.25</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800">バンド斡旋&プレエントリー受付中</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            THE LIVE 2026夏のバンド斡旋およびプレエントリーシートです。
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1GYi1drAUZPw1zG5o4tZXKOUH_n_Vz8hrPhZ6a-diw5Q/edit?gid=2068695880#gid=2068695880" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-pastel-bg border border-slate-300 py-2.5 rounded-xl text-xs font-bold text-pastel-accent hover:bg-sky-50 transition mt-4">
+                        スプレッドシートを開く <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLYER SECTION ===== -->
+    <section id="flyer" class="py-16 bg-white border-b border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">FLYER <span class="text-base md:text-lg font-normal text-slate-500 font-sans ml-2">/ フライヤー</span></h2>
+            </div>
+
+            <!-- Flyer Coming Soon Container -->
+            <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4 max-w-2xl mx-auto">
+                <div class="w-16 h-16 bg-sky-100 text-pastel-accent rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+                <h3 class="font-en font-black text-2xl text-slate-700 tracking-wider">OFFICIAL FLYER</h3>
+                <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
+                    Coming Soon...
+                </div>
+                <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                    THE LIVE 2026夏の公式ポスター・フライヤーデザインは現在制作中です。完成次第公開します！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="py-16 md:py-24 px-4">
+        <div class="max-w-5xl mx-auto space-y-12">
+            
+            <!-- Section Header -->
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">About The Event</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">「THE LIVE」とは？</h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Concept Text Box -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold text-center text-slate-800">
+                    テーマ：<span class="bg-pastel-yellow px-2 py-0.5 rounded">「一歩ずつ進化しよう」</span>
+                </h3>
+                <p class="text-sm md:text-base leading-relaxed text-slate-700">
+                    「THE LIVE」は、E.L.L.（筑波軽音楽協会）が主催する、筑波大学の6つ軽音・音楽系サークル合同のライブです。
+                </p>
+                <p class="text-sm md:text-base leading-relaxed text-slate-700">
+                   今回も多数のエントリーをいただき、3日間の開催が叶いそうです。あまり無い機会なので、ぜひ足を運んでみてください！
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== TIMETABLE SECTION ===== -->
+    <section id="timetable" class="py-16 md:py-24 bg-white border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+            
+            <!-- Section Header -->
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">Live Schedule</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold font-en">TIMETABLE <span class="text-lg font-normal text-slate-500 font-sans ml-2">/ タイムテーブル</span></h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Current Performing Band Widget -->
+            <div class="max-w-3xl mx-auto bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 border border-sky-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+                
+                <!-- Status Bar with Toggle -->
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="font-en font-black text-xs tracking-wider uppercase text-slate-700">LIVE STATUS</span>
+                    </div>
+
+                    <!-- Dynamic Status Toggle Badge -->
+                    <div id="status-badge" class="inline-flex items-center gap-1.5 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                        <i id="status-icon" class="fa-solid fa-compact-disc fa-spin"></i>
+                        <span id="status-text">演奏中</span>
+                    </div>
+                </div>
+
+                <!-- Live Band Info Card -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-slate-400 tracking-wider uppercase font-en">CURRENT BAND</span>
+                        <h3 id="band-name" class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">
+                            サークル合同スペシャルバンド
+                        </h3>
+                    </div>
+
+                    <div class="bg-white/80 p-4 rounded-2xl border border-slate-200/80 space-y-1">
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block font-en">COVER / COPY TARGET</span>
+                        <p id="band-copy" class="text-base font-bold text-sky-600 flex items-center gap-2">
+                            <i class="fa-solid fa-music text-xs"></i> ASIAN KUNG-FU GENERATION
+                        </p>
+                    </div>
+                </div>
+
+                <!-- YouTube Live Stream Link Banner -->
+                <div class="bg-gradient-to-r from-red-500 to-rose-600 text-white rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+                    <div class="flex items-center gap-3 text-center sm:text-left">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <div>
+                            <div class="font-en font-black text-xs tracking-wider text-red-100 uppercase">ONLINE LIVE STREAM</div>
+                            <div class="font-bold text-sm sm:text-base">YouTube生配信はこちらから視聴可能！</div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="bg-white text-red-600 hover:bg-slate-100 px-5 py-2.5 rounded-full text-xs font-extrabold transition shrink-0 flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-play text-[10px]"></i> 生配信を観る (YouTube)
+                    </a>
+                </div>
+
+                <!-- Simulation Control Switcher (Demo Interactive Controls) -->
+                <div class="pt-2 border-t border-slate-200/60 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                    <span>ステータス切り替え確認（デモ）:</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setStatus('playing')" class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-lg font-bold hover:bg-emerald-200 transition">
+                            演奏中
+                        </button>
+                        <button onclick="setStatus('transition')" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg font-bold hover:bg-amber-200 transition">
+                            転換中
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3-Day Timetable Tabs Section -->
+            <div class="space-y-8">
+                <!-- Day Selector Tabs -->
+                <div class="flex justify-center gap-2 sm:gap-4 border-b border-slate-200 pb-4">
+                    <button onclick="switchDay(1)" id="day1-tab" class="day-tab active bg-pastel-accent text-white px-6 py-3 rounded-2xl font-bold text-sm sm:text-base transition shadow-sm">
+                        DAY 1 <span class="text-xs font-normal block sm:inline sm:ml-1 opacity-90">8/8 [Sat]</span>
+                    </button>
+                    <button onclick="switchDay(2)" id="day2-tab" class="day-tab bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-6 py-3 rounded-2xl font-bold text-sm sm:text-base transition">
+                        DAY 2 <span class="text-xs font-normal block sm:inline sm:ml-1 opacity-90">8/9 [Sun]</span>
+                    </button>
+                    <button onclick="switchDay(3)" id="day3-tab" class="day-tab bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-6 py-3 rounded-2xl font-bold text-sm sm:text-base transition">
+                        DAY 3 <span class="text-xs font-normal block sm:inline sm:ml-1 opacity-90">8/10 [Mon]</span>
+                    </button>
+                </div>
+
+                <!-- Day 1 Panel -->
+                <div id="day1-panel" class="day-panel space-y-4">
+                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
+                        <div class="w-16 h-16 bg-sky-100 text-pastel-accent rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 1 TIMETABLE (8/8 Sat)</h4>
+                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
+                            Coming Soon...
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                            8/8(土)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 Panel -->
+                <div id="day2-panel" class="day-panel hidden space-y-4">
+                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
+                        <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 2 TIMETABLE (8/9 Sun)</h4>
+                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
+                            Coming Soon...
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                            8/9(日)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 Panel -->
+                <div id="day3-panel" class="day-panel hidden space-y-4">
+                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 3 TIMETABLE (8/10 Mon)</h4>
+                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
+                            Coming Soon...
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                            8/10(月・祝)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== GOODS SECTION ===== -->
+    <section id="goods" class="py-16 md:py-24 bg-pastel-bg border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">Official Merchandise</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold font-en">GOODS <span class="text-lg font-normal text-slate-500 font-sans ml-2">/ グッズ</span></h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4 max-w-2xl mx-auto">
+                <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <h3 class="font-en font-black text-2xl text-slate-700 tracking-wider">OFFICIAL MERCHANDISE</h3>
+                <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
+                    Coming Soon...
+                </div>
+                <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+                    THE LIVE 2026夏のオフィシャルグッズ情報は現在準備中です。ラインナップ決定まで今しばらくお待ちください！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTICIPATING CIRCLES SECTION ===== -->
+    <section id="circles" class="py-16 bg-white border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">Participating Organizations</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold">参加サークル一覧</h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Circles Link List -->
+            <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-3xl mx-auto">
+                <!-- E.L.L. (Purple) -->
+                <a href="https://www.stb.tsukuba.ac.jp/~ell/" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-purple-50 hover:bg-purple-100 border border-purple-200 text-purple-900 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-purple-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="font-en font-black">E.L.L.</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+
+                <!-- 筑音 (Red) -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-900 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 group-hover:scale-125 transition-transform"></span>
+                    <span>筑音</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+
+                <!-- つくばフォーク村 (Green) -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 group-hover:scale-125 transition-transform"></span>
+                    <span>つくばフォーク村</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+
+                <!-- TOJO K-ON (Orange) -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="font-en font-black">TOJO K-ON</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+
+                <!-- PBCM (Blue) -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-900 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sky-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="font-en font-black">PBCM</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+
+                <!-- Sound Loop (Gray) -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" 
+                   class="group flex items-center gap-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 font-bold px-5 py-2.5 rounded-full text-sm transition shadow-sm hover:shadow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-500 group-hover:scale-125 transition-transform"></span>
+                    <span class="font-en font-black">Sound Loop</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-50 group-hover:opacity-100 transition"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-800 pb-8">
+                <div>
+                    <h3 class="font-en font-black text-2xl text-white tracking-wider">THE LIVE 2026夏</h3>
+                    <p class="text-xs text-slate-500 mt-1">主催：E.L.L.（筑波軽音楽協会）</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 font-en text-xs font-bold text-slate-300">
+                    <a href="#news" class="hover:text-white transition">NEWS</a>
+                    <a href="#forms" class="hover:text-white transition">FORMS</a>
+                    <a href="#flyer" class="hover:text-white transition">FLYER</a>
+                    <a href="#about" class="hover:text-white transition">ABOUT</a>
+                    <a href="#timetable" class="hover:text-white transition">TIMETABLE</a>
+                    <a href="#goods" class="hover:text-white transition">GOODS</a>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-slate-600 font-en">
+                <p>&copy; 2026 E.L.L. (Tsukuba Keion Association) All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT INTERACTION ===== -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // 3-Day Timetable Day Switcher
+        function switchDay(dayNum) {
+            // Panels
+            for (let i = 1; i <= 3; i++) {
+                const panel = document.getElementById(`day${i}-panel`);
+                const tab = document.getElementById(`day${i}-tab`);
+                
+                if (i === dayNum) {
+                    panel.classList.remove('hidden');
+                    tab.classList.add('bg-pastel-accent', 'text-white', 'shadow-sm');
+                    tab.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+                } else {
+                    panel.classList.add('hidden');
+                    tab.classList.remove('bg-pastel-accent', 'text-white', 'shadow-sm');
+                    tab.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+                }
+            }
+        }
+
+        // Current Performing Status Switcher (Demo / Realtime Toggle)
+        function setStatus(status) {
+            const badge = document.getElementById('status-badge');
+            const icon = document.getElementById('status-icon');
+            const text = document.getElementById('status-text');
+
+            if (status === 'playing') {
+                badge.className = 'inline-flex items-center gap-1.5 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm';
+                icon.className = 'fa-solid fa-compact-disc fa-spin';
+                text.innerText = '演奏中';
+            } else if (status === 'transition') {
+                badge.className = 'inline-flex items-center gap-1.5 bg-amber-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm';
+                icon.className = 'fa-solid fa-arrow-rotate-right fa-spin';
+                text.innerText = '転換中';
+            }
+        }
+    </script>
+</body>
+</html>
