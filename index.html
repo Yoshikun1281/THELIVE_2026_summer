@@ -550,48 +550,59 @@
         }
     </script>
 
-    // ===== ABOUTセクション スライドショー処理 =====
-const aboutImages = [
-    'IMG_6784.JPG',
-    'IMG_7100.JPG',
-    'IMG_7370.JPG',
-    'IMG_7457.JPG',
-    'IMG_7498.JPG',
-    'IMG_7645.JPG',
-    'IMG_7819.JPG',
-    'IMG_8367.JPG',
-    'IMG_8405.JPG',
-    'IMG_8504.JPG',
-    'IMG_8539.JPG',
-    'IMG_8550.JPG',
-    'IMG_8740.JPG',
-    'IMG_8781.JPG',
-    'IMG_8933.JPG'
-];
+// ===== ABOUTセクション スライドショー処理 =====
+document.addEventListener("DOMContentLoaded", () => {
 
-let currentImgIndex = 0;
-const aboutBgEl = document.getElementById('about-bg');
+    const aboutImages = [
+        "IMG_6784.JPG",
+        "IMG_7100.JPG",
+        "IMG_7370.JPG",
+        "IMG_7457.JPG",
+        "IMG_7498.JPG",
+        "IMG_7645.JPG",
+        "IMG_7819.JPG",
+        "IMG_8367.JPG",
+        "IMG_8405.JPG",
+        "IMG_8504.JPG",
+        "IMG_8539.JPG",
+        "IMG_8550.JPG",
+        "IMG_8740.JPG",
+        "IMG_8781.JPG",
+        "IMG_8933.JPG"
+    ];
 
-function changeAboutBackground() {
+    const aboutBgEl = document.getElementById("about-bg");
+
     if (!aboutBgEl || aboutImages.length === 0) return;
 
-    // フェードアウト
-    aboutBgEl.classList.add('opacity-0');
+    let currentImgIndex = 0;
 
-    setTimeout(() => {
-        // 画像切り替えとフェードイン
-        aboutBgEl.style.backgroundImage = `url('${aboutImages[currentImgIndex]}')`;
-        aboutBgEl.classList.remove('opacity-0');
-        
-        // 次の画像へ（15枚ループ）
-        currentImgIndex = (currentImgIndex + 1) % aboutImages.length;
-    }, 1000); // 1秒かけて暗転・切替
-}
+    // 初回表示
+    aboutBgEl.style.backgroundImage = `url('${aboutImages[currentImgIndex]}')`;
+    aboutBgEl.classList.remove("opacity-0");
 
-// 初期実行 & 10秒ごとに繰り返し
-if (aboutBgEl && aboutImages.length > 0) {
-    changeAboutBackground();
-    setInterval(changeAboutBackground, 10000);
-}
+    currentImgIndex++;
+
+    // 画像切替
+    setInterval(() => {
+
+        // フェードアウト
+        aboutBgEl.classList.add("opacity-0");
+
+        setTimeout(() => {
+
+            aboutBgEl.style.backgroundImage =
+                `url('${aboutImages[currentImgIndex]}')`;
+
+            aboutBgEl.classList.remove("opacity-0");
+
+            currentImgIndex =
+                (currentImgIndex + 1) % aboutImages.length;
+
+        }, 1000);
+
+    }, 10000);
+
+});
 </body>
 </html>
