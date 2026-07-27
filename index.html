@@ -254,10 +254,10 @@
     <!-- ===== ABOUT SECTION ===== -->
 <section id="about" class="py-16 md:py-24 px-4 relative overflow-hidden">
     <!-- 1. 背景画像を表示する要素 -->
-    <div id="about-bg" class="absolute inset-0 -z-20 bg-cover bg-center transition-opacity duration-1000 opacity-0"></div>
+    <div id="about-bg" class="absolute inset-0 -z-20 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-0 brightness-110 contrast-110 saturate-125"></div>
 
     <!-- 2. 文字を読みやすくするための白シアー（半透明）フィルター -->
-    <div class="absolute inset-0 -z-10 bg-white/80 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 -z-10 bg-white/80 backdrop-blur-[1px]"></div>
 
     <!-- コンテンツ本体（relative z-10 を付けて背景より前面へ） -->
     <div class="max-w-5xl mx-auto space-y-12 relative z-10">
@@ -598,9 +598,9 @@ document.addEventListener("DOMContentLoaded", () => {
             currentImgIndex =
                 (currentImgIndex + 1) % aboutImages.length;
 
-        }, 1000);
+        }, 2000);
 
-    }, 10000);
+    }, 12000);
 
 });
 
