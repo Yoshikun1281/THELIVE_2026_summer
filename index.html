@@ -250,9 +250,17 @@
         </div>
     </section>
 
+    
     <!-- ===== ABOUT SECTION ===== -->
-    <section id="about" class="py-16 md:py-24 px-4">
-        <div class="max-w-5xl mx-auto space-y-12">
+<section id="about" class="py-16 md:py-24 px-4 relative overflow-hidden">
+    <!-- 1. 背景画像を表示する要素 -->
+    <div id="about-bg" class="absolute inset-0 -z-20 bg-cover bg-center transition-opacity duration-1000 opacity-0"></div>
+
+    <!-- 2. 文字を読みやすくするための白シアー（半透明）フィルター -->
+    <div class="absolute inset-0 -z-10 bg-white/80 backdrop-blur-[2px]"></div>
+
+    <!-- コンテンツ本体（relative z-10 を付けて背景より前面へ） -->
+    <div class="max-w-5xl mx-auto space-y-12 relative z-10">
             <!-- Section Header -->
             <div class="text-center space-y-3">
                 <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">About The Event</span>
