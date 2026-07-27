@@ -235,24 +235,24 @@
         </div>
     </section>
 
-<!-- ===== FLYER SECTION ===== -->
+    <!-- ===== FLYER SECTION ===== -->
     <section id="flyer" class="py-16 bg-white border-b border-slate-200/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10"> <!-- 親コンテナを広く、余白を調整 -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
             <div class="flex items-center gap-3">
                 <div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
                 <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">FLYER <span class="text-base md:text-lg font-normal text-slate-500 font-sans ml-2">/ フライヤー</span></h2>
             </div>
 
             <!-- Official Flyer Display Container - Enlarged Size -->
-            <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-100 transition-transform duration-300 hover:scale-[1.02]"> <!-- 画像コンテナを大幅に拡大、影を強く、ホバー時の拡大率を調整 -->
+            <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-100 transition-transform duration-300 hover:scale-[1.02]">
                 <img src="thelive_flyer1.jpg" alt="THE LIVE 2026夏 フライヤー" class="w-full h-auto block object-cover">
             </div>
         </div>
     </section>
+
     <!-- ===== ABOUT SECTION ===== -->
     <section id="about" class="py-16 md:py-24 px-4">
         <div class="max-w-5xl mx-auto space-y-12">
-            
             <!-- Section Header -->
             <div class="text-center space-y-3">
                 <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">About The Event</span>
@@ -273,7 +273,6 @@
                    今回のTHE LIVEは夏休みの序盤の3日間で開催されます！！軽音楽サークルらしく、演奏して、聴いて、踊って、楽しむ3日間になれば嬉しいと思っています。
                 </p>
             </div>
-
         </div>
     </section>
 
@@ -291,23 +290,6 @@
             <!-- Current Performing Band Widget -->
             <div class="max-w-3xl mx-auto bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 border border-sky-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
                 
-                <!-- Status Bar with Toggle -->
-                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
-                    <div class="flex items-center gap-2">
-                        <span class="relative flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                        </span>
-                        <span class="font-en font-black text-xs tracking-wider uppercase text-slate-700">LIVE STATUS</span>
-                    </div>
-
-                    <!-- Dynamic Status Toggle Badge -->
-                    <div id="status-badge" class="inline-flex items-center gap-1.5 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
-                        <i id="status-icon" class="fa-solid fa-compact-disc fa-spin"></i>
-                        <span id="status-text">演奏中</span>
-                    </div>
-                </div>
-
                 <!-- Live Band Info Card -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                     <div class="space-y-2">
@@ -339,19 +321,6 @@
                     <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="bg-white text-red-600 hover:bg-slate-100 px-5 py-2.5 rounded-full text-xs font-extrabold transition shrink-0 flex items-center gap-2 shadow-sm">
                         <i class="fa-solid fa-play text-[10px]"></i> 生配信を観る (YouTube)
                     </a>
-                </div>
-
-                <!-- Simulation Control Switcher (Demo Interactive Controls) -->
-                <div class="pt-2 border-t border-slate-200/60 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
-                    <span>ステータス切り替え確認（デモ）:</span>
-                    <div class="flex items-center gap-2">
-                        <button onclick="setStatus('playing')" class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-lg font-bold hover:bg-emerald-200 transition">
-                            演奏中
-                        </button>
-                        <button onclick="setStatus('transition')" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg font-bold hover:bg-amber-200 transition">
-                            転換中
-                        </button>
-                    </div>
                 </div>
 
             </div>
@@ -569,23 +538,6 @@
                     tab.classList.remove('bg-pastel-accent', 'text-white', 'shadow-sm');
                     tab.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
                 }
-            }
-        }
-
-        // Current Performing Status Switcher (Demo / Realtime Toggle)
-        function setStatus(status) {
-            const badge = document.getElementById('status-badge');
-            const icon = document.getElementById('status-icon');
-            const text = document.getElementById('status-text');
-
-            if (status === 'playing') {
-                badge.className = 'inline-flex items-center gap-1.5 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm';
-                icon.className = 'fa-solid fa-compact-disc fa-spin';
-                text.innerText = '演奏中';
-            } else if (status === 'transition') {
-                badge.className = 'inline-flex items-center gap-1.5 bg-amber-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm';
-                icon.className = 'fa-solid fa-arrow-rotate-right fa-spin';
-                text.innerText = '転換中';
             }
         }
     </script>
