@@ -4,6 +4,24 @@
 
 const newsData = [
     {
+    id: 3,
+    type: "EVENT",
+    badgeClass: "bg-pink-100 text-pink-800",
+    icon: "fa-music",
+    title: "THE LIVE MTを開催！",
+    date: "2026.08.03",
+    image: "thelive_flyer1.jpg",
+    content: `
+<p><strong>8月5日（水）19:30</strong>より、<strong>文サ館A室</strong>にて<strong>THE LIVE MT</strong>を開催します！</p>
+
+<p>春学期もそろそろ終わり、いよいよ<strong>THE LIVE夏</strong>が到来！</p>
+
+<p>MTでは、タイムテーブルの発表や隊別ミーティングを行います。</p>
+
+<p>出演者はもちろん、THE LIVEに興味のある方も大歓迎です！A室で会いましょう。</p>
+`
+},
+    {
     id: 2,
     type: "IMPORTANT",
     badgeClass: "bg-red-100 text-red-800",
