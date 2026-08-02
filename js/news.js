@@ -64,13 +64,10 @@ class="block bg-pastel-bg border border-slate-200 rounded-2xl p-5 hover:shadow-m
 
 <div class="flex items-center gap-3">
 
-span class="${news.badgeClass} text-xs font-bold px-2.5 py-1 rounded-md">
-text-${news.color}-900
-text-xs
-font-bold
-px-2.5
-py-0.5
-rounded-md">
+<span class="${news.badgeClass} text-xs font-bold px-2.5 py-1 rounded-md">
+    <i class="fa-solid ${news.icon} mr-1"></i>
+    ${news.type}
+</span>
 
 <i class="fa-solid ${news.icon} mr-1"></i>
 
@@ -129,13 +126,10 @@ p-6 hover:shadow-md hover:-translate-y-1 transition">
 
 <div class="flex items-center gap-3">
 
-<span class="${news.badgeClass}"
-text-${news.color}-900
-px-2.5
-py-1
-rounded-md
-text-xs
-font-bold">
+<span class="${news.badgeClass} text-xs font-bold px-2.5 py-1 rounded-md">
+    <i class="fa-solid ${news.icon} mr-1"></i>
+    ${news.type}
+</span>
 
 <i class="fa-solid ${news.icon} mr-1"></i>
 
