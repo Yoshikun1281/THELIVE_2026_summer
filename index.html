@@ -133,11 +133,7 @@
     via-transparent
     to-pink-100/20">
 </div>
-        
-        <!-- Background Blobs -->
-        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[380px] pastel-gradient rounded-full blur-3xl opacity-75 -z-10"></div>
-
-        <div class="max-w-4xl mx-auto text-center space-y-6">
+     <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
             <!-- Title, Date & Place -->
             <div class="space-y-4">
                 <h1 class="font-en text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-pastel-accent">
@@ -307,12 +303,8 @@ transition">
     
     <!-- ===== ABOUT SECTION ===== -->
 <section id="about" class="py-16 md:py-24 px-4 relative overflow-hidden">
-    <!-- 1. 背景画像を表示する要素 -->
-    <div id="about-bg" class="absolute inset-0 -z-20 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-0 brightness-110 contrast-110 saturate-125"></div>
-
-    <!-- 2. 文字を読みやすくするための白シアー（半透明）フィルター -->
-    <div class="absolute inset-0 -z-10 bg-white/80 backdrop-blur-[1px]"></div>
-
+    
+    <div class="absolute inset-0 -z-10 bg-white/80"></div>
     <!-- コンテンツ本体（relative z-10 を付けて背景より前面へ） -->
     <div class="max-w-5xl mx-auto space-y-12 relative z-10">
             <!-- Section Header -->
@@ -603,10 +595,10 @@ transition">
             }
         }
 
-// ===== ABOUTセクション スライドショー処理 =====
+// ===== HEROセクション スライドショー処理 =====
 document.addEventListener("DOMContentLoaded", () => {
 
-    const aboutImages = [
+    const heroImages = [
         "IMG_8405.JPG",
         "IMG_8504.JPG",
         "IMG_8539.JPG",
@@ -624,15 +616,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "IMG_8367.JPG"
     ];
 
-    const aboutBgEl = document.getElementById("about-bg");
+    const heroBgEl = document.getElementById("hero-bg");
 
-    if (!aboutBgEl || aboutImages.length === 0) return;
+    if (!heroBgEl || heroImages.length === 0) return;
 
     let currentImgIndex = 0;
 
     // 初回表示
-    aboutBgEl.style.backgroundImage = `url('${aboutImages[currentImgIndex]}')`;
-    aboutBgEl.classList.remove("opacity-0");
+    heroBgEl.style.backgroundImage = `url('${heroImages[currentImgIndex]}')`;
+    heroBgEl.classList.remove("opacity-0");
 
     currentImgIndex++;
 
@@ -640,17 +632,17 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
 
         // フェードアウト
-        aboutBgEl.classList.add("opacity-0");
+        heroBgEl.classList.add("opacity-0");
 
         setTimeout(() => {
 
-            aboutBgEl.style.backgroundImage =
-                `url('${aboutImages[currentImgIndex]}')`;
+            heroBgEl.style.backgroundImage =
+                `url('${heroImages[currentImgIndex]}')`;
 
-            aboutBgEl.classList.remove("opacity-0");
+            heroBgEl.classList.remove("opacity-0");
 
             currentImgIndex =
-                (currentImgIndex + 1) % aboutImages.length;
+                (currentImgIndex + 1) % heroImages.length;
 
         }, 1000);
 
