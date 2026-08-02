@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEWS | THE LIVE 2026夏</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            bg: "#FAF9F5",
+                            accent: "#0EA5E9",
+                            text: "#1E293B"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-pastel-bg text-pastel-text">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+            <a href="index.html"
+                class="font-black text-2xl text-pastel-accent">
+
+                THE LIVE 2026夏
+
+            </a>
+
+            <nav class="flex items-center gap-6 text-sm font-bold">
+
+                <a href="index.html" class="hover:text-pastel-accent transition">
+                    TOP
+                </a>
+
+                <a href="news.html" class="hover:text-pastel-accent transition">
+                    NEWS
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="py-16">
+
+        <div class="max-w-4xl mx-auto px-6">
+
+            <article
+                class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
+
+                <!-- 画像 -->
+                <img
+                    id="article-image"
+                    class="hidden w-full h-80 object-cover">
+
+                <!-- 本文 -->
+                <div class="p-8 md:p-10">
+
+                    <!-- バッジ -->
+                    <div id="article-badge"></div>
+
+                    <!-- タイトル -->
+                    <h1
+                        id="article-title"
+                        class="text-4xl font-black mt-5 leading-tight">
+                    </h1>
+
+                    <!-- 日付 -->
+                    <p
+                        id="article-date"
+                        class="text-slate-500 mt-3">
+                    </p>
+
+                    <hr class="my-8">
+
+                    <!-- 本文 -->
+                    <div
+                        id="article-content"
+                        class="prose prose-slate max-w-none leading-8">
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- 前後記事 -->
+
+            <div
+                class="grid grid-cols-2 gap-4 mt-8">
+
+                <a
+                    id="prev-news"
+                    href="#"
+                    class="bg-white border border-slate-200 rounded-2xl p-5 hover:shadow transition">
+
+                    ← 前の記事
+
+                </a>
+
+                <a
+                    id="next-news"
+                    href="#"
+                    class="bg-white border border-slate-200 rounded-2xl p-5 text-right hover:shadow transition">
+
+                    次の記事 →
+
+                </a>
+
+            </div>
+
+            <!-- 一覧へ戻る -->
+
+            <div class="text-center mt-10">
+
+                <a
+                    href="news.html"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 bg-white hover:bg-slate-50 transition font-bold">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    NEWS一覧へ戻る
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="border-t border-slate-200 py-10 text-center text-sm text-slate-500">
+
+        © THE LIVE 2026夏
+
+    </footer>
+
+    <!-- news.js -->
+    <script src="js/news.js"></script>
+
+    <!-- Part2でここにJavaScriptを追加します -->
+  <script>
+
+// ===============================
+// URLから記事IDを取得
+// ===============================
+
+const params = new URLSearchParams(window.location.search);
+const articleId = Number(params.get("id"));
+
+// ===============================
+// 記事を検索
+// ===============================
+
+const article = newsData.find(news => news.id === articleId);
+
+// ===============================
+// 要素取得
+// ===============================
+
+const badge = document.getElementById("article-badge");
+const title = document.getElementById("article-title");
+const date = document.getElementById("article-date");
+const image = document.getElementById("article-image");
+const content = document.getElementById("article-content");
+
+// ===============================
+// 記事が存在しない場合
+// ===============================
+
+if(!article){
+
+    document.querySelector("article").innerHTML = `
+
+    <div class="p-12 text-center">
+
+        <h2 class="text-3xl font-black mb-6">
+
+            記事が見つかりません
+
+        </h2>
+
+        <p class="text-slate-500 mb-8">
+
+            指定された記事は存在しません。
+
+        </p>
+
+        <a href="news.html"
+            class="inline-flex items-center gap-2
+            px-6 py-3
+            rounded-full
+            bg-white
+            border
+            border-slate-300
+            hover:bg-slate-50">
+
+            NEWS一覧へ戻る
+
+        </a>
+
+    </div>
+
+    `;
+
+}else{
+
+// ===============================
+// バッジ表示
+// ===============================
+
+badge.innerHTML = `
+
+<span class="${article.badgeClass}
+text-xs
+font-bold
+px-3
+py-1
+rounded-full">
+
+<i class="fa-solid ${article.icon} mr-1"></i>
+
+${article.type}
+
+</span>
+
+`;
+
+// ===============================
+// タイトル
+// ===============================
+
+title.textContent = article.title;
+
+// ===============================
+// 日付
+// ===============================
+
+date.textContent = article.date;
+
+// ===============================
+// 本文
+// ===============================
+
+content.innerHTML = article.content;
+
+// ===============================
+// 画像
+// ===============================
+
+if(article.image){
+
+    image.src = article.image;
+
+    image.classList.remove("hidden");
+
+}else{
+
+    image.classList.add("hidden");
+
+}
+
+}
+
+    <script>
+
+// ===============================
+// ページタイトル変更
+// ===============================
+
+if(article){
+
+    document.title = `${article.title} | THE LIVE 2026夏`;
+
+}
+
+// ===============================
+// 前後の記事
+// ===============================
+
+const prevButton = document.getElementById("prev-news");
+const nextButton = document.getElementById("next-news");
+
+const currentIndex = newsData.findIndex(news => news.id === articleId);
+
+// 前の記事（新しい記事）
+if(currentIndex > 0){
+
+    prevButton.href = `article.html?id=${newsData[currentIndex-1].id}`;
+
+    prevButton.innerHTML = `
+        ← ${newsData[currentIndex-1].title}
+    `;
+
+}else{
+
+    prevButton.classList.add("opacity-40");
+    prevButton.classList.add("pointer-events-none");
+
+    prevButton.innerHTML = "← これより新しい記事はありません";
+
+}
+
+// 次の記事（古い記事）
+if(currentIndex < newsData.length-1){
+
+    nextButton.href = `article.html?id=${newsData[currentIndex+1].id}`;
+
+    nextButton.innerHTML = `
+        ${newsData[currentIndex+1].title} →
+    `;
+
+}else{
+
+    nextButton.classList.add("opacity-40");
+    nextButton.classList.add("pointer-events-none");
+
+    nextButton.innerHTML = "これより古い記事はありません →";
+
+}
+
+</script>
+</script>
+
+</body>
+
+</html>
