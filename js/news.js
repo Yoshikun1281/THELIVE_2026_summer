@@ -55,7 +55,7 @@ if(newsContainer){
 
         newsContainer.innerHTML += `
 
-<a href="${news.file}"
+<a href="article.html?id=${news.id}"
 class="block bg-pastel-bg border border-slate-200 rounded-2xl p-5 hover:shadow-md hover:-translate-y-1 transition">
 
 <div class="flex justify-between items-center">
@@ -64,7 +64,7 @@ class="block bg-pastel-bg border border-slate-200 rounded-2xl p-5 hover:shadow-m
 
 <div class="flex items-center gap-3">
 
-<span class="bg-pastel-${news.color}
+span class="${news.badgeClass} text-xs font-bold px-2.5 py-1 rounded-md">
 text-${news.color}-900
 text-xs
 font-bold
@@ -118,7 +118,7 @@ if(newsAll){
 
         newsAll.innerHTML += `
 
-<a href="${news.file}"
+<a href="article.html?id=${news.id}"
 
 class="block bg-white rounded-2xl border border-slate-200
 p-6 hover:shadow-md hover:-translate-y-1 transition">
@@ -129,7 +129,7 @@ p-6 hover:shadow-md hover:-translate-y-1 transition">
 
 <div class="flex items-center gap-3">
 
-<span class="bg-pastel-${news.color}
+<span class="${news.badgeClass}"
 text-${news.color}-900
 px-2.5
 py-1
