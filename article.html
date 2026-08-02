@@ -118,48 +118,36 @@
 
             </article>
 
-            <!-- 前後記事 -->
-
-            <div
-                class="grid grid-cols-2 gap-4 mt-8">
-
-                <a
-                    id="prev-news"
-                    href="#"
-                    class="bg-white border border-slate-200 rounded-2xl p-5 hover:shadow transition">
-
-                    ← 前の記事
-
-                </a>
-
-                <a
-                    id="next-news"
-                    href="#"
-                    class="bg-white border border-slate-200 rounded-2xl p-5 text-right hover:shadow transition">
-
-                    次の記事 →
-
-                </a>
-
-            </div>
-
             <!-- 一覧へ戻る -->
 
-            <div class="text-center mt-10">
+<div class="text-center mt-10 space-y-4">
 
-                <a
-                    href="news.html"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 bg-white hover:bg-slate-50 transition font-bold">
+    <div>
+        <a
+            href="news.html"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 bg-white hover:bg-slate-50 transition font-bold">
 
-                    <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-newspaper"></i>
 
-                    NEWS一覧へ戻る
+            NEWS一覧へ戻る
 
-                </a>
+        </a>
+    </div>
 
-            </div>
+    <div>
+        <a
+            href="index.html"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-pastel-accent text-white hover:opacity-90 transition font-bold">
 
-        </div>
+            <i class="fa-solid fa-house"></i>
+
+            トップページへ戻る
+
+        </a>
+    </div>
+
+</div>
+
 
     </main>
 
@@ -307,51 +295,6 @@ if(article.image){
 if(article){
 
     document.title = `${article.title} | THE LIVE 2026夏`;
-
-}
-
-// ===============================
-// 前後の記事
-// ===============================
-
-const prevButton = document.getElementById("prev-news");
-const nextButton = document.getElementById("next-news");
-
-const currentIndex = newsData.findIndex(news => news.id === articleId);
-
-// 前の記事（新しい記事）
-if(currentIndex > 0){
-
-    prevButton.href = `article.html?id=${newsData[currentIndex-1].id}`;
-
-    prevButton.innerHTML = `
-        ← ${newsData[currentIndex-1].title}
-    `;
-
-}else{
-
-    prevButton.classList.add("opacity-40");
-    prevButton.classList.add("pointer-events-none");
-
-    prevButton.innerHTML = "← これより新しい記事はありません";
-
-}
-
-// 次の記事（古い記事）
-if(currentIndex < newsData.length-1){
-
-    nextButton.href = `article.html?id=${newsData[currentIndex+1].id}`;
-
-    nextButton.innerHTML = `
-        ${newsData[currentIndex+1].title} →
-    `;
-
-}else{
-
-    nextButton.classList.add("opacity-40");
-    nextButton.classList.add("pointer-events-none");
-
-    nextButton.innerHTML = "これより古い記事はありません →";
 
 }
 
