@@ -114,3 +114,68 @@ ${news.date}
     });
 
 }
+
+// ===============================
+// NEWS一覧ページ
+// ===============================
+
+const newsAll = document.getElementById("news-all");
+
+if(newsAll){
+
+    newsData.forEach(news=>{
+
+        newsAll.innerHTML += `
+
+<a href="${news.file}"
+
+class="block bg-white rounded-2xl border border-slate-200
+p-6 hover:shadow-md hover:-translate-y-1 transition">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<div class="flex items-center gap-3">
+
+<span class="bg-pastel-${news.color}
+text-${news.color}-900
+px-2.5
+py-1
+rounded-md
+text-xs
+font-bold">
+
+<i class="fa-solid ${news.icon} mr-1"></i>
+
+${news.type}
+
+</span>
+
+<span class="font-bold text-lg">
+
+${news.title}
+
+</span>
+
+</div>
+
+<p class="text-sm text-slate-500 mt-3">
+
+${news.date}
+
+</p>
+
+</div>
+
+<i class="fa-solid fa-chevron-right text-slate-400"></i>
+
+</div>
+
+</a>
+
+`;
+
+    });
+
+}
