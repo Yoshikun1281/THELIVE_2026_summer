@@ -4,6 +4,22 @@
 
 const newsData = [
     {
+    id: 2,
+    type: "IMPORTANT",
+    badgeClass: "bg-red-100 text-red-800",
+    icon: "fa-triangle-exclamation",
+    title: "THE LIVE本エントリーと打ち上げエントリーの締切について",
+    date: "2026.08.02",
+    image: "",
+    content: `
+<p><strong>THE LIVE本エントリー</strong>および<strong>打ち上げエントリー</strong>の締切は、<strong>8月3日</strong>となっています！</p>
+
+<p>現在、まだ回答数が少ない状況です。</p>
+
+<p>期限までに忘れずフォームの提出をお願いいたします。</p>
+`
+},
+    {
         id: 0,
         type: "INFO",
         badgeClass: "bg-sky-100 text-sky-800",
@@ -27,20 +43,7 @@ const newsData = [
 `
     },
 
-    {
-        id: 1,
-        type: "UPDATE",
-        badgeClass: "bg-emerald-100 text-emerald-800",
-        icon: "fa-clock",
-        title: "タイムテーブルを公開しました！",
-        date: "2026.07.25",
-        image: "",
-        content: `
-<p>タイムテーブルを公開しました。</p>
-
-<p>出演時間をご確認のうえ、ご来場ください。</p>
-`
-    }
+ 
 
 ];
 // ===============================
