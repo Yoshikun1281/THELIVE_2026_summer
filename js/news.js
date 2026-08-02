@@ -14,7 +14,7 @@ const newsData = [
     content: `
 <p><strong>8月5日（水）19:30</strong>より、<strong>文サ館A室</strong>にて<strong>THE LIVE MT</strong>を開催します！</p>
 
-<p>春学期もそろそろ終わり、いよいよ<strong>THE LIVE夏</strong>が到来！</p>
+<p>春学期もそろそろ終わり、いよいよTHE LIVE夏が到来です！</p>
 
 <p>MTでは、タイムテーブルの発表や隊別ミーティングを行います。</p>
 
