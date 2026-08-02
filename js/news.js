@@ -3,55 +3,46 @@
 // ===============================
 
 const newsData = [
-
     {
+        id: 0,
         type: "INFO",
+        badgeClass: "bg-sky-100 text-sky-800",
         icon: "fa-circle-info",
-        color: "sky",
         title: "試しにWebサイトを公開しました！",
         date: "2026.07.20",
-        file: "news/20260720.html"
+        image: "",
+        content: `
+<p>THE LIVE2026夏の特設Webサイトを公開しました！</p>
+
+<p>今後はこちらで</p>
+
+<ul class="list-disc ml-6">
+    <li>タイムテーブル</li>
+    <li>出演バンド</li>
+    <li>グッズ情報</li>
+    <li>各種お知らせ</li>
+</ul>
+
+<p>などを更新していきます。</p>
+`
     },
 
     {
+        id: 1,
         type: "UPDATE",
+        badgeClass: "bg-emerald-100 text-emerald-800",
         icon: "fa-clock",
-        color: "emerald",
         title: "タイムテーブルを公開しました！",
         date: "2026.07.25",
-        file: "news/20260725.html"
-    },
+        image: "",
+        content: `
+<p>タイムテーブルを公開しました。</p>
 
-    {
-        type: "EVENT",
-        icon: "fa-music",
-        color: "pink",
-        title: "出演バンドを公開しました！",
-        date: "2026.08.01",
-        file: "news/20260801.html"
-    },
-
-    {
-        type: "PARTY",
-        icon: "fa-champagne-glasses",
-        color: "amber",
-        title: "打ち上げ受付を開始しました！",
-        date: "2026.08.03",
-        file: "news/20260803.html"
-    },
-
-    {
-        type: "LIVE",
-        icon: "fa-video",
-        color: "red",
-        title: "YouTube配信URLを公開しました！",
-        date: "2026.08.05",
-        file: "news/20260805.html"
+<p>出演時間をご確認のうえ、ご来場ください。</p>
+`
     }
 
 ];
-
-
 // ===============================
 // 最新5件表示
 // ===============================
