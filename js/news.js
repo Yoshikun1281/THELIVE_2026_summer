@@ -69,11 +69,6 @@ class="block bg-pastel-bg border border-slate-200 rounded-2xl p-5 hover:shadow-m
     ${news.type}
 </span>
 
-<i class="fa-solid ${news.icon} mr-1"></i>
-
-${news.type}
-
-</span>
 
 <span class="font-bold text-slate-800">
 
@@ -129,12 +124,6 @@ p-6 hover:shadow-md hover:-translate-y-1 transition">
 <span class="${news.badgeClass} text-xs font-bold px-2.5 py-1 rounded-md">
     <i class="fa-solid ${news.icon} mr-1"></i>
     ${news.type}
-</span>
-
-<i class="fa-solid ${news.icon} mr-1"></i>
-
-${news.type}
-
 </span>
 
 <span class="font-bold text-lg">
