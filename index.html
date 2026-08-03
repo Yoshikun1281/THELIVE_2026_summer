@@ -117,8 +117,8 @@
         <!-- 背景画像 -->
 <div
     id="hero-bg"
-    class="absolute inset-0 bg-cover bg-center
-    transition-opacity duration-1000 opacity-0">
+    class="absolute inset-0 bg-cover bg-center"
+    style="transition: opacity 1s ease;">
 </div>
 
 <!-- オーバーレイ -->
@@ -657,35 +657,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentImgIndex = 0;
 
+    // フェード時間(ms)
+    const fadeTime = 1000;
+
+
     // 初回表示
-    heroBgEl.style.backgroundImage = `url('${heroImages[currentImgIndex]}')`;
-    heroBgEl.classList.remove("opacity-0");
+    heroBgEl.style.backgroundImage =
+        `url('${heroImages[currentImgIndex]}')`;
+
+    heroBgEl.style.opacity = 1;
 
     currentImgIndex++;
+
 
     // 画像切替
     setInterval(() => {
 
         // フェードアウト
-        heroBgEl.classList.add("opacity-0");
+        heroBgEl.style.opacity = 0;
+
 
         setTimeout(() => {
 
+            // 次画像へ変更
             heroBgEl.style.backgroundImage =
                 `url('${heroImages[currentImgIndex]}')`;
 
-            heroBgEl.classList.remove("opacity-0");
+
+            // フェードイン
+            heroBgEl.style.opacity = 1;
+
 
             currentImgIndex =
                 (currentImgIndex + 1) % heroImages.length;
 
-        }, 1000);
+
+        }, fadeTime);
+
 
     }, 6000);
 
 });
-
- </script>
     
  <script src="js/news.js">   
  </script>
