@@ -623,32 +623,13 @@ transition">
 document.addEventListener("DOMContentLoaded", () => {
 
     const heroImages = [
-        "IMG_8740.JPG",
-        "IMG_8405.JPG",
-        "IMG_6443.JPG",
-        "IMG_6397.JPG",
-        "IMG_6226.JPG",
-        "IMG_7100.JPG",
-        "IMG_8504.JPG",
-        "IMG_8781.JPG",
-        "IMG_8933.JPG",
-        "IMG_7370.JPG",
-        "IMG_7457.JPG",
-        "IMG_7498.JPG",
-        "IMG_8456.JPG",
-        "IMG_6621.JPG",
-        "IMG_6438.JPG",
-        "IMG_6371.JPG",
-        "IMG_6122.JPG",
-        "IMG_6117.JPG",
-        "IMG_5896.JPG",
-        "IMG_5820.JPG",
-        "IMG_8068.JPG",
-        "IMG_8539.JPG",
-        "IMG_6784.JPG",
-        "IMG_7645.JPG",
-        "IMG_7819.JPG",
-        "IMG_8367.JPG"
+        "IMG_8740.JPG", "IMG_8405.JPG", "IMG_6443.JPG", "IMG_6397.JPG",
+        "IMG_6226.JPG", "IMG_7100.JPG", "IMG_8504.JPG", "IMG_8781.JPG",
+        "IMG_8933.JPG", "IMG_7370.JPG", "IMG_7457.JPG", "IMG_7498.JPG",
+        "IMG_8456.JPG", "IMG_6621.JPG", "IMG_6438.JPG", "IMG_6371.JPG",
+        "IMG_6122.JPG", "IMG_6117.JPG", "IMG_5896.JPG", "IMG_5820.JPG",
+        "IMG_8068.JPG", "IMG_8539.JPG", "IMG_6784.JPG", "IMG_7645.JPG",
+        "IMG_7819.JPG", "IMG_8367.JPG"
     ];
 
     const heroBgEl = document.getElementById("hero-bg");
@@ -666,25 +647,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // 画像切替
     setInterval(() => {
 
+        // --- 修正箇所 1 ---
         // フェードアウト
         heroBgEl.classList.add("opacity-0");
 
+        // フェードアウトが完了（1秒後）するのを待つ
         setTimeout(() => {
 
+            // --- 修正箇所 2 ---
+            // 1. まず裏側で新しい画像を設定
             heroBgEl.style.backgroundImage =
                 `url('${heroImages[currentImgIndex]}')`;
 
-            heroBgEl.classList.remove("opacity-0");
+            // 2. わずかな遅延（50ms）を入れて、ブラウザに画像設定を認識させる
+            //    これにより、opacity-0 の削除時にフェードイン（CSS transition）が効く
+            setTimeout(() => {
+                heroBgEl.classList.remove("opacity-0"); // フェードイン開始
+            }, 50);
 
+            // 3. インデックスを更新
             currentImgIndex =
                 (currentImgIndex + 1) % heroImages.length;
 
-        }, 1000);
+        }, 1000); // 1秒かけてフェードアウト
 
-    }, 6000);
+    }, 6000); // 6秒ごとに切り替え
 
 });
-
  </script>
     
  <script src="js/news.js">   
