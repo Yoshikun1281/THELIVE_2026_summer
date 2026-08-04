@@ -642,40 +642,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!heroBgEl || heroImages.length === 0) return;
 
+    // --- 改善点 1: 全画像をあらかじめバックグラウンドで読み込んでおく ---
+    heroImages.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+    });
+
     let currentImgIndex = 0;
 
     // 初回表示
     heroBgEl.style.backgroundImage = `url('${heroImages[currentImgIndex]}')`;
     heroBgEl.classList.remove("opacity-0");
 
-    currentImgIndex++;
+    currentImgIndex = (currentImgIndex + 1) % heroImages.length;
 
     // 画像切替
     setInterval(() => {
 
-        // --- 修正箇所 1 ---
-        // フェードアウト
+        // 1. フェードアウト開始
         heroBgEl.classList.add("opacity-0");
 
-        // フェードアウトが完了（1秒後）するのを待つ
+        const nextSrc = heroImages[currentImgIndex];
+
+        // 2. 1秒後のフェードアウト完了時に画像を差し替える
         setTimeout(() => {
+            heroBgEl.style.backgroundImage = `url('${nextSrc}')`;
 
-            // --- 修正箇所 2 ---
-            // 1. まず裏側で新しい画像を設定
-            heroBgEl.style.backgroundImage =
-                `url('${heroImages[currentImgIndex]}')`;
+            // --- 改善点 2: ブラウザの描画完了を待ってから不透明度を戻す ---
+            // 二重の requestAnimationFrame を使うことで、画像の描画準備が整った次のフレームでフェードインが始まります
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    heroBgEl.classList.remove("opacity-0");
+                });
+            });
 
-            // 2. わずかな遅延（50ms）を入れて、ブラウザに画像設定を認識させる
-            //    これにより、opacity-0 の削除時にフェードイン（CSS transition）が効く
-            setTimeout(() => {
-                heroBgEl.classList.remove("opacity-0"); // フェードイン開始
-            }, 50);
+            // インデックスを更新
+            currentImgIndex = (currentImgIndex + 1) % heroImages.length;
 
-            // 3. インデックスを更新
-            currentImgIndex =
-                (currentImgIndex + 1) % heroImages.length;
-
-        }, 1000); // 1秒かけてフェードアウト
+        }, 1000); // フェードアウト時間（1秒）
 
     }, 6000); // 6秒ごとに切り替え
 
