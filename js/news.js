@@ -4,6 +4,24 @@
 
 const newsData = [
     {
+    id: 2,
+    type: "IMPORTANT",
+    badgeClass: "bg-red-100 text-red-800",
+    icon: "fa-triangle-exclamation",
+    title: "THE LIVEの準備と片付けについて",
+    date: "2026.08.05",
+    image: "",
+    content: `
+<p>ザライの準備と片付けは以下の日程でA室で行います！！</p>
+
+<p><strong>準備:8/7(金)18時~</strong></p>
+
+<p><strong>片付け:8/11(火)12時~</strong></p>
+
+<p>出演者のみなさんは必ず参加するようにしてください。</p>
+`
+},
+    {
     id: 3,
     type: "EVENT",
     badgeClass: "bg-pink-100 text-pink-800",
