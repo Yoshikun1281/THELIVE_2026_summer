@@ -63,11 +63,11 @@
             transform: translateY(-6px);
         }
         #hero-bg {
-      transition: opacity 1s ease-in-out;
-    }
-    .opacity-0 {
-      opacity: 0;
-    }
+            transition: opacity 1s ease-in-out;
+        }
+        .opacity-0 {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-pastel-text selection:bg-pastel-sky">
@@ -115,30 +115,18 @@
     </header>
 
     <!-- ===== HERO SECTION ===== -->
-    <section
-    class="relative overflow-hidden
-    pt-28 pb-16 md:pt-36 md:pb-24 px-4
-    min-h-screen flex items-center justify-center">
+    <section class="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 px-4 min-h-screen flex items-center justify-center">
 
         <!-- 背景画像 -->
-<div
-    id="hero-bg"
-    class="absolute inset-0 bg-cover bg-center
-    transition-opacity duration-1000 opacity-0">
-</div>
+        <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"></div>
 
-<!-- オーバーレイ -->
-<div class="absolute inset-0 bg-white/20 backdrop-blur-[3px]"></div>
+        <!-- オーバーレイ -->
+        <div class="absolute inset-0 bg-white/20 backdrop-blur-[3px]"></div>
 
+        <!-- パステルオーバーレイ -->
+        <div class="absolute inset-0 bg-gradient-to-br from-sky-100/20 via-transparent to-pink-100/20"></div>
 
-<!-- パステルオーバーレイ -->
-<div
-    class="absolute inset-0 bg-gradient-to-br
-    from-sky-100/20
-    via-transparent
-    to-pink-100/20">
-</div>
-     <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
             <!-- Title, Date & Place -->
             <div class="space-y-4">
                 <h1 class="font-en text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-pastel-accent">
@@ -172,61 +160,28 @@
     </section>
 
     <!-- ===== NEWS ===== -->
+    <section id="news" class="py-12 bg-white border-y border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">
+                    NEWS
+                    <span class="text-base font-normal text-slate-500 font-sans">/ お知らせ</span>
+                </h2>
+            </div>
 
-<section id="news" class="py-12 bg-white border-y border-slate-200/60">
+            <!-- NEWS自動生成 -->
+            <div id="news-list" class="space-y-4"></div>
 
-<div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mt-8">
+                <a href="news.html" class="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-full px-6 py-3 font-bold hover:bg-slate-50 transition">
+                    もっと見る
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-<div class="flex items-center gap-3 mb-6">
-
-<div class="w-3 h-8 bg-pastel-accent rounded-full"></div>
-
-<h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-en">
-
-NEWS
-
-<span class="text-base font-normal text-slate-500 font-sans">
-
-/ お知らせ
-
-</span>
-
-</h2>
-
-</div>
-
-<!-- NEWS自動生成 -->
-
-<div id="news-list" class="space-y-4">
-
-</div>
-
-<div class="text-center mt-8">
-
-<a href="news.html"
-
-class="inline-flex items-center gap-2
-bg-white
-border
-border-slate-300
-rounded-full
-px-6
-py-3
-font-bold
-hover:bg-slate-50
-transition">
-
-もっと見る
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
     <!-- ===== FORMS SECTION ===== -->
     <section id="forms" class="py-16 bg-pastel-bg border-b border-slate-200/60">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -237,41 +192,24 @@ transition">
 
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-<!-- Form Item 0: THE LIVE要望表 -->
-<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
-    <div>
-        <div class="flex items-center justify-between text-xs mb-2">
-            <span class="bg-pastel-yellow font-bold px-2.5 py-0.5 rounded-md text-yellow-900 font-en">
-                SHEET
-            </span>
+                <!-- Form Item 0: THE LIVE要望表 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="bg-pastel-yellow font-bold px-2.5 py-0.5 rounded-md text-yellow-900 font-en">SHEET</span>
+                            <span class="text-slate-400 font-en font-bold">2026.08.05</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800">THE LIVE要望表</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                            THE LIVEのタイムテーブル＋要望表です。<br>
+                            出演するまでに必ず要望表を書くようにお願いします！！
+                        </p>
+                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1T5ceV-Xi3gklo0-VRqMjyas0We1OMqlCKnGqanH3Qzw/edit?gid=1119020049#gid=1119020049" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-pastel-bg border border-slate-300 py-2.5 rounded-xl text-xs font-bold text-yellow-700 hover:bg-yellow-50 transition mt-4">
+                        要望表を開く <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
 
-            <span class="text-slate-400 font-en font-bold">
-                2026.08.05
-            </span>
-        </div>
-
-        <h3 class="font-bold text-base text-slate-800">
-            THE LIVE要望表
-        </h3>
-
-        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            THE LIVEのタイムテーブル＋要望表です。<br>
-            出演するまでに必ず要望表を書くようにお願いします！！
-        </p>
-    </div>
-
-    <a
-        href="https://docs.google.com/spreadsheets/d/1T5ceV-Xi3gklo0-VRqMjyas0We1OMqlCKnGqanH3Qzw/edit?gid=1119020049#gid=1119020049"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 w-full bg-pastel-bg border border-slate-300 py-2.5 rounded-xl text-xs font-bold text-yellow-700 hover:bg-yellow-50 transition mt-4">
-
-        要望表を開く
-
-        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-
-    </a>
-</div>
                 <!-- Form Item 1: 本エントリー -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition space-y-3 flex flex-col justify-between">
                     <div>
@@ -341,61 +279,43 @@ transition">
         </div>
     </section>
 
-<!-- ===== ABOUT SECTION ===== -->
-<section id="about" class="py-16 md:py-24 px-4 relative overflow-hidden">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="py-16 md:py-24 px-4 relative overflow-hidden">
 
-    <!-- 背景画像 -->
-    <div 
-        class="absolute inset-0 bg-cover bg-center"
-        style="background-image: url('ザライパン切り抜き.JPG');">
-    </div>
+        <!-- 背景画像 -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('ザライパン切り抜き.JPG');"></div>
 
-    <!-- 白い半透明オーバーレイ -->
-    <div class="absolute inset-0  bg-white/70 backdrop-blur-[2px]"></div>
+        <!-- 白い半透明オーバーレイ -->
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
 
+        <!-- コンテンツ本体 -->
+        <div class="max-w-5xl mx-auto space-y-12 relative z-10">
 
-    <!-- コンテンツ本体 -->
-    <div class="max-w-5xl mx-auto space-y-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">About The Event</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">「THE LIVE」とは？</h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
+            </div>
 
-        <!-- Section Header -->
-        <div class="text-center space-y-3">
-            <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">
-                About The Event
-            </span>
-
-            <h2 class="text-3xl md:text-4xl font-extrabold">
-                「THE LIVE」とは？
-            </h2>
-
-            <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
-        </div>
-
-
-        <!-- Concept Text Box -->
-        <div class="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 max-w-3xl mx-auto">
-
-            <h3 class="text-xl font-bold text-center text-slate-800">
-                テーマ：
-                <span class="bg-pastel-yellow px-2 py-0.5 rounded">
-                    「夏じゃん！大きくなれ本気ボンバー！」
-                </span>
-            </h3>
-
-            <p class="text-sm md:text-base leading-relaxed text-slate-700">
-                「THE LIVE」は、E.L.L.（筑波軽音楽協会）が主催する、筑波大学の6つ軽音・音楽系サークル合同のライブです。
-                普段は組むことのできない他サークルの人とバンドを組める！貴重なイベントです！
-            </p>
-
-            <p class="text-sm md:text-base leading-relaxed text-slate-700">
-                今回のTHE LIVEは夏休みの序盤の3日間で開催されます！！
-                軽音楽サークルらしく、演奏して、聴いて、踊って、楽しむ3日間になれば嬉しいと思っています。
-            </p>
+            <!-- Concept Text Box -->
+            <div class="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm space-y-6 max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold text-center text-slate-800">
+                    テーマ：<span class="bg-pastel-yellow px-2 py-0.5 rounded">「夏じゃん！大きくなれ本気ボンバー！」</span>
+                </h3>
+                <p class="text-sm md:text-base leading-relaxed text-slate-700">
+                    「THE LIVE」は、E.L.L.（筑波軽音楽協会）が主催する、筑波大学の6つ軽音・音楽系サークル合同のライブです。
+                    普段は組むことのできない他サークルの人とバンドを組める！貴重なイベントです！
+                </p>
+                <p class="text-sm md:text-base leading-relaxed text-slate-700">
+                    今回のTHE LIVEは夏休みの序盤の3日間で開催されます！！
+                    軽音楽サークルらしく、演奏して、聴いて、踊って、楽しむ3日間になれば嬉しいと思っています。
+                </p>
+            </div>
 
         </div>
+    </section>
 
-    </div>
-
-</section>
     <!-- ===== TIMETABLE SECTION ===== -->
     <section id="timetable" class="py-16 md:py-24 bg-white border-t border-slate-200/60">
         <div class="max-w-full mx-auto px-4 sm:px-6 space-y-12">
@@ -414,9 +334,7 @@ transition">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                     <div class="space-y-2">
                         <span class="text-xs font-bold text-slate-400 tracking-wider uppercase font-en">CURRENT BAND</span>
-                        <h3 id="band-name" class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">
-                            ???
-                        </h3>
+                        <h3 id="band-name" class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">???</h3>
                     </div>
 
                     <div class="bg-white/80 p-4 rounded-2xl border border-slate-200/80 space-y-1">
@@ -461,62 +379,41 @@ transition">
                 </div>
 
                 <!-- Day 1 Panel -->
-         <div id="day1-panel" class="day-panel space-y-4">
+                <div id="day1-panel" class="day-panel space-y-4"></div>
 
-</div>
                 <!-- Day 2 Panel -->
-              <div id="day2-panel" class="day-panel hidden space-y-4">
+                <div id="day2-panel" class="day-panel hidden space-y-4"></div>
 
-</div>
                 <!-- Day 3 Panel -->
-              <div id="day3-panel" class="day-panel hidden space-y-4">
-
-</div>
+                <div id="day3-panel" class="day-panel hidden space-y-4"></div>
 
             </div>
 
         </div>
     </section>
 
-<!-- ===== GOODS SECTION ===== -->
-<section id="goods" class="py-16 md:py-24 px-4 bg-white border-y border-slate-200/60">
+    <!-- ===== GOODS SECTION ===== -->
+    <section id="goods" class="py-16 md:py-24 px-4 bg-white border-y border-slate-200/60">
+        <div class="max-w-5xl mx-auto space-y-12">
 
-    <div class="max-w-5xl mx-auto space-y-12">
-
-        <!-- Section Header -->
-        <div class="text-center space-y-3">
-            <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">
-                Official Goods
-            </span>
-
-            <h2 class="text-3xl md:text-4xl font-extrabold">
-                GOODS
-            </h2>
-
-            <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
-        </div>
-
-        <!-- GOODS画像 -->
-        <div class="max-w-3xl mx-auto">
-
-            <div class="bg-pastel-bg rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-
-                <img
-                    src="THELIVE_GOODS.jpg"
-                    alt="THE LIVE GOODS"
-                    class="w-full h-auto object-cover">
-
+            <!-- Section Header -->
+            <div class="text-center space-y-3">
+                <span class="font-en text-xs font-bold tracking-widest text-pastel-accent uppercase">Official Goods</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">GOODS</h2>
+                <div class="w-12 h-1 bg-pastel-accent mx-auto rounded-full"></div>
             </div>
 
-            <p class="mt-5 text-center text-slate-500 text-sm tracking-widest font-en">
-                From E.L.L.
-            </p>
+            <!-- GOODS画像 -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-pastel-bg rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+                    <img src="THELIVE_GOODS.jpg" alt="THE LIVE GOODS" class="w-full h-auto object-cover">
+                </div>
+                <p class="mt-5 text-center text-slate-500 text-sm tracking-widest font-en">From E.L.L.</p>
+            </div>
 
         </div>
+    </section>
 
-    </div>
-
-</section>
     <!-- ===== PARTICIPATING CIRCLES SECTION ===== -->
     <section id="circles" class="py-16 bg-white border-t border-slate-200/60">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
@@ -604,232 +501,154 @@ transition">
     </footer>
 
     <!-- ===== JAVASCRIPT INTERACTION ===== -->
-<script>
-    // =========================
-    // Mobile Menu
-    // =========================
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
+    <script>
+        // =========================
+        // Mobile Menu
+        // =========================
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-link");
 
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.add("hidden");
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
             });
-        });
-    }
 
-    // =========================
-    // Day Switch
-    // =========================
-    function switchDay(dayNum) {
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                });
+            });
+        }
 
-        for (let i = 1; i <= 3; i++) {
+        // =========================
+        // Day Switch
+        // =========================
+        function switchDay(dayNum) {
+            for (let i = 1; i <= 3; i++) {
+                const panel = document.getElementById(`day${i}-panel`);
+                const tab = document.getElementById(`day${i}-tab`);
 
-            const panel = document.getElementById(`day${i}-panel`);
-            const tab = document.getElementById(`day${i}-tab`);
-
-            if (i === dayNum) {
-
-                panel.classList.remove("hidden");
-
-                tab.classList.add(
-                    "bg-pastel-accent",
-                    "text-white",
-                    "shadow-sm"
-                );
-
-                tab.classList.remove(
-                    "bg-white",
-                    "text-slate-600",
-                    "hover:bg-slate-100"
-                );
-
-            } else {
-
-                panel.classList.add("hidden");
-
-                tab.classList.remove(
-                    "bg-pastel-accent",
-                    "text-white",
-                    "shadow-sm"
-                );
-
-                tab.classList.add(
-                    "bg-white",
-                    "text-slate-600",
-                    "hover:bg-slate-100"
-                );
+                if (i === dayNum) {
+                    panel.classList.remove("hidden");
+                    tab.classList.add("bg-pastel-accent", "text-white", "shadow-sm");
+                    tab.classList.remove("bg-white", "text-slate-600", "hover:bg-slate-100");
+                } else {
+                    panel.classList.add("hidden");
+                    tab.classList.remove("bg-pastel-accent", "text-white", "shadow-sm");
+                    tab.classList.add("bg-white", "text-slate-600", "hover:bg-slate-100");
+                }
             }
         }
-    }
 
-    // =========================
-    // Timetable API
-    // =========================
+        // =========================
+        // Timetable API
+        // =========================
+        const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
 
-    const API_URL =
-        "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
+        async function loadTimetable() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
 
-    async function loadTimetable() {
+                console.log(data);
 
-        try {
-
-            const response = await fetch(API_URL);
-            const data = await response.json();
-
-            console.log(data);
-
-            createDay("day1-panel", data.day1);
-            createDay("day2-panel", data.day2);
-            createDay("day3-panel", data.day3);
-
-        } catch (err) {
-
-            console.error(err);
-
+                createDay("day1-panel", data.day1);
+                createDay("day2-panel", data.day2);
+                createDay("day3-panel", data.day3);
+            } catch (err) {
+                console.error(err);
+            }
         }
 
-    }
+        function createDay(panelId, list) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
 
-    function createDay(panelId, list) {
+            if (!Array.isArray(list) || list.length === 0) {
+                panel.innerHTML = `
+                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
+                        タイムテーブル調整中またはデータがありません
+                    </div>
+                `;
+                return;
+            }
 
-        const panel = document.getElementById(panelId);
+            panel.innerHTML = "";
 
-        if (!panel) return;
+            list.forEach(item => {
+                const start = item.start || item.time || "";
+                const end = item.end || "";
+                const band = item.band || item.name || item.bandName || "";
+                const artist = item.artist || item.copy || "";
 
-        if (!Array.isArray(list) || list.length === 0) {
-
-            panel.innerHTML = `
-                <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
-                    タイムテーブル調整中またはデータがありません
-                </div>
-            `;
-
-            return;
+                panel.innerHTML += `
+                    <div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">
+                                ${band}
+                            </h4>
+                            ${artist ? `<p class="text-sky-600 text-sm flex items-center gap-1.5 mt-0.5"><i class="fa-solid fa-music text-[10px]"></i> ${artist}</p>` : ''}
+                        </div>
+                        <div class="text-right shrink-0 ml-4">
+                            <div class="font-black text-pastel-accent">
+                                ${start}
+                            </div>
+                            ${end ? `<div class="text-xs text-slate-500">～ ${end}</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
         }
 
-        panel.innerHTML = "";
+        loadTimetable();
 
-        list.forEach(item => {
+        // =========================
+        // Hero Slideshow
+        // =========================
+        document.addEventListener("DOMContentLoaded", () => {
+            const heroImages = [
+                "IMG_8740.JPG", "IMG_8405.JPG", "IMG_6443.JPG", "IMG_6397.JPG",
+                "IMG_7100.JPG", "IMG_8781.JPG", "IMG_7457.JPG", "IMG_7498.JPG",
+                "IMG_8456.JPG", "IMG_6438.JPG", "IMG_6371.JPG",
+                "IMG_6117.JPG", "IMG_5896.JPG", "IMG_5820.JPG"
+            ];
 
-            const start = item.start || "";
-            const end = item.end || "";
-            const band = item.band || "";
-            const artist = item.artist || "";
+            const heroBgEl = document.getElementById("hero-bg");
 
-            panel.innerHTML += `
-                <div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
+            if (!heroBgEl) return;
 
-                    <div>
-                        <h4 class="font-bold text-lg">
-                            ${band}
-                        </h4>
+            heroImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
 
-                        <p class="text-sky-600 text-sm">
-                            ${artist}
-                        </p>
-                    </div>
+            let current = 0;
 
-                    <div class="text-right">
-                        <div class="font-black text-pastel-accent">
-                            ${start}
-                        </div>
+            heroBgEl.style.backgroundImage = `url('${heroImages[current]}')`;
+            heroBgEl.classList.remove("opacity-0");
 
-                        <div class="text-xs text-slate-500">
-                            ～ ${end}
-                        </div>
-                    </div>
+            current = (current + 1) % heroImages.length;
 
-                </div>
-            `;
+            setInterval(() => {
+                heroBgEl.classList.add("opacity-0");
 
-        });
+                const next = heroImages[current];
 
-    }
-
-    loadTimetable();
-
-    // =========================
-    // Hero Slideshow
-    // =========================
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const heroImages = [
-            "IMG_8740.JPG",
-            "IMG_8405.JPG",
-            "IMG_6443.JPG",
-            "IMG_6397.JPG",
-            "IMG_7100.JPG",
-            "IMG_8781.JPG",
-            "IMG_7457.JPG",
-            "IMG_7498.JPG",
-            "IMG_8456.JPG",
-            "IMG_6438.JPG",
-            "IMG_6371.JPG",
-            "IMG_6117.JPG",
-            "IMG_5896.JPG",
-            "IMG_5820.JPG"
-        ];
-
-        const heroBgEl = document.getElementById("hero-bg");
-
-        if (!heroBgEl) return;
-
-        heroImages.forEach(src => {
-
-            const img = new Image();
-            img.src = src;
-
-        });
-
-        let current = 0;
-
-        heroBgEl.style.backgroundImage =
-            `url('${heroImages[current]}')`;
-
-        heroBgEl.classList.remove("opacity-0");
-
-        current = (current + 1) % heroImages.length;
-
-        setInterval(() => {
-
-            heroBgEl.classList.add("opacity-0");
-
-            const next = heroImages[current];
-
-            setTimeout(() => {
-
-                heroBgEl.style.backgroundImage =
-                    `url('${next}')`;
-
-                requestAnimationFrame(() => {
+                setTimeout(() => {
+                    heroBgEl.style.backgroundImage = `url('${next}')`;
 
                     requestAnimationFrame(() => {
-
-                        heroBgEl.classList.remove("opacity-0");
-
+                        requestAnimationFrame(() => {
+                            heroBgEl.classList.remove("opacity-0");
+                        });
                     });
 
-                });
-
-                current = (current + 1) % heroImages.length;
-
-            }, 1000);
-
-        }, 6000);
-
-    });
-
-</script>
-    
- <script src="js/news.js">   
- </script>
+                    current = (current + 1) % heroImages.length;
+                }, 1000);
+            }, 6000);
+        });
+    </script>
+    <script src="js/news.js"></script>
 </body>
 </html>
