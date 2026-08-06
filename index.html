@@ -640,9 +640,12 @@ transition">
                 }
             }
         }
-
         
-        const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
+// =====================================
+// ここから追加
+// =====================================
+
+const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
 
 async function loadTimetable() {
 
@@ -652,6 +655,7 @@ async function loadTimetable() {
     createDay("day1-panel", data.day1);
     createDay("day2-panel", data.day2);
     createDay("day3-panel", data.day3);
+
 }
 
 function createDay(panelId, list) {
@@ -663,31 +667,7 @@ function createDay(panelId, list) {
     list.forEach(item => {
 
         panel.innerHTML += `
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-                <div class="flex justify-between items-center">
-
-                    <div>
-                        <h3 class="text-lg font-bold">
-                            ${item.band}
-                        </h3>
-
-                        <p class="text-sky-600 text-sm">
-                            ${item.artist}
-                        </p>
-                    </div>
-
-                    <div class="text-right">
-                        <div class="font-bold text-xl">
-                            ${item.start}
-                        </div>
-
-                        <div class="text-slate-500 text-sm">
-                            ～ ${item.end}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <!-- カード -->
         `;
 
     });
@@ -695,7 +675,10 @@ function createDay(panelId, list) {
 }
 
 loadTimetable();
-        
+
+// =====================================
+// ここまで追加
+// =====================================
 // ===== HEROセクション スライドショー処理 =====
 document.addEventListener("DOMContentLoaded", () => {
 
