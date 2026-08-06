@@ -461,52 +461,17 @@ transition">
                 </div>
 
                 <!-- Day 1 Panel -->
-                <div id="day1-panel" class="day-panel space-y-4">
-                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
-                        <div class="w-16 h-16 bg-sky-100 text-pastel-accent rounded-full flex items-center justify-center mx-auto text-2xl">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 1 TIMETABLE (8/8 Sat)</h4>
-                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
-                            Coming Soon...
-                        </div>
-                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
-                            8/8(土)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
-                        </p>
-                    </div>
-                </div>
+         <div id="day1-panel" class="day-panel space-y-4">
 
+</div>
                 <!-- Day 2 Panel -->
-                <div id="day2-panel" class="day-panel hidden space-y-4">
-                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
-                        <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto text-2xl">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 2 TIMETABLE (8/9 Sun)</h4>
-                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
-                            Coming Soon...
-                        </div>
-                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
-                            8/9(日)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
-                        </p>
-                    </div>
-                </div>
+              <div id="day2-panel" class="day-panel hidden space-y-4">
 
+</div>
                 <!-- Day 3 Panel -->
-                <div id="day3-panel" class="day-panel hidden space-y-4">
-                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-12 text-center space-y-4">
-                        <div class="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto text-2xl">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4 class="font-en font-black text-2xl text-slate-700 tracking-wider">DAY 3 TIMETABLE (8/10 Mon)</h4>
-                        <div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-xs font-en tracking-widest uppercase">
-                            Coming Soon...
-                        </div>
-                        <p class="text-xs md:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
-                            8/10(月・祝)のタイムテーブルは現在調整中です。後日公開いたしますので楽しみにお待ちください！
-                        </p>
-                    </div>
-                </div>
+              <div id="day3-panel" class="day-panel hidden space-y-4">
+
+</div>
 
             </div>
 
@@ -676,6 +641,61 @@ transition">
             }
         }
 
+        
+        const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
+
+async function loadTimetable() {
+
+    const response = await fetch(API_URL);
+    const data = await response.json();
+
+    createDay("day1-panel", data.day1);
+    createDay("day2-panel", data.day2);
+    createDay("day3-panel", data.day3);
+}
+
+function createDay(panelId, list) {
+
+    const panel = document.getElementById(panelId);
+
+    panel.innerHTML = "";
+
+    list.forEach(item => {
+
+        panel.innerHTML += `
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex justify-between items-center">
+
+                    <div>
+                        <h3 class="text-lg font-bold">
+                            ${item.band}
+                        </h3>
+
+                        <p class="text-sky-600 text-sm">
+                            ${item.artist}
+                        </p>
+                    </div>
+
+                    <div class="text-right">
+                        <div class="font-bold text-xl">
+                            ${item.start}
+                        </div>
+
+                        <div class="text-slate-500 text-sm">
+                            ～ ${item.end}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        `;
+
+    });
+
+}
+
+loadTimetable();
+        
 // ===== HEROセクション スライドショー処理 =====
 document.addEventListener("DOMContentLoaded", () => {
 
