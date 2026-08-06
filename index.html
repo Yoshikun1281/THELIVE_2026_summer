@@ -604,180 +604,230 @@ transition">
     </footer>
 
     <!-- ===== JAVASCRIPT INTERACTION ===== -->
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+<script>
+    // =========================
+    // Mobile Menu
+    // =========================
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        }
-
-        // 3-Day Timetable Day Switcher
-        function switchDay(dayNum) {
-            // Panels
-            for (let i = 1; i <= 3; i++) {
-                const panel = document.getElementById(`day${i}-panel`);
-                const tab = document.getElementById(`day${i}-tab`);
-                
-                if (i === dayNum) {
-                    panel.classList.remove('hidden');
-                    tab.classList.add('bg-pastel-accent', 'text-white', 'shadow-sm');
-                    tab.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100');
-                } else {
-                    panel.classList.add('hidden');
-                    tab.classList.remove('bg-pastel-accent', 'text-white', 'shadow-sm');
-                    tab.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
-                }
-            }
-        }
-        
-// =====================================
-// ここから追加
-// =====================================
-
-const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
-
-async function loadTimetable() {
-    try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
-        console.log(data);
-        console.log(data.day1[0]);
-
-        createDay("day1-panel", data.day1);
-        createDay("day2-panel", data.day2);
-        createDay("day3-panel", data.day3);
-
-    } catch (err) {
-        console.error(err);
-    }
-}
-
- function createDay(panelId, list) {
-
-    const panel = document.getElementById(panelId);
-
-    console.log(panelId, panel);
-            if (!panel) return;
-
-            // データが無い場合・取得失敗時の表示
-            if (!list || !Array.isArray(list) || list.length === 0) {
-                panel.innerHTML = `
-                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
-                        タイムテーブル調整中またはデータがありません
-                    </div>
-                `;
-                return;
-            }
-
-            panel.innerHTML = "";
-
-            // アイテムのプロパティを安全に読み込み、HTMLカードを出力
-            list.forEach(item => {
-const start = item.start || "";
-const end = item.end || "";
-const band = item.band || "";
-const artist = item.artist || "";
-
-       panel.innerHTML += `
-<div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
-
-    <div>
-        <h4 class="font-bold text-lg">
-            ${band}
-        </h4>
-
-        <p class="text-sky-600 text-sm">
-            ${artist}
-        </p>
-    </div>
-
-    <div class="text-right">
-        <div class="font-black text-pastel-accent">
-            ${start}
-        </div>
-        <div class="text-xs text-slate-500">
-            ～ ${end}
-        </div>
-    </div>
-
-</div>
-`;
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
         });
- }
-        loadTimetable();
 
-// =====================================
-// ここまで追加
-// =====================================
-// ===== HEROセクション スライドショー処理 =====
-document.addEventListener("DOMContentLoaded", () => {
+        mobileLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+    }
 
-    const heroImages = [
-        "IMG_8740.JPG", "IMG_8405.JPG", "IMG_6443.JPG", "IMG_6397.JPG",
-        "IMG_7100.JPG", "IMG_8781.JPG","IMG_7457.JPG", "IMG_7498.JPG",
-        "IMG_8456.JPG","IMG_6438.JPG", "IMG_6371.JPG",
-        "IMG_6117.JPG", "IMG_5896.JPG", "IMG_5820.JPG",
-    ];
+    // =========================
+    // Day Switch
+    // =========================
+    function switchDay(dayNum) {
 
-    const heroBgEl = document.getElementById("hero-bg");
+        for (let i = 1; i <= 3; i++) {
 
-    if (!heroBgEl || heroImages.length === 0) return;
+            const panel = document.getElementById(`day${i}-panel`);
+            const tab = document.getElementById(`day${i}-tab`);
 
-    // --- 改善点 1: 全画像をあらかじめバックグラウンドで読み込んでおく ---
-    heroImages.forEach((src) => {
-        const img = new Image();
-        img.src = src;
+            if (i === dayNum) {
+
+                panel.classList.remove("hidden");
+
+                tab.classList.add(
+                    "bg-pastel-accent",
+                    "text-white",
+                    "shadow-sm"
+                );
+
+                tab.classList.remove(
+                    "bg-white",
+                    "text-slate-600",
+                    "hover:bg-slate-100"
+                );
+
+            } else {
+
+                panel.classList.add("hidden");
+
+                tab.classList.remove(
+                    "bg-pastel-accent",
+                    "text-white",
+                    "shadow-sm"
+                );
+
+                tab.classList.add(
+                    "bg-white",
+                    "text-slate-600",
+                    "hover:bg-slate-100"
+                );
+            }
+        }
+    }
+
+    // =========================
+    // Timetable API
+    // =========================
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
+
+    async function loadTimetable() {
+
+        try {
+
+            const response = await fetch(API_URL);
+            const data = await response.json();
+
+            console.log(data);
+
+            createDay("day1-panel", data.day1);
+            createDay("day2-panel", data.day2);
+            createDay("day3-panel", data.day3);
+
+        } catch (err) {
+
+            console.error(err);
+
+        }
+
+    }
+
+    function createDay(panelId, list) {
+
+        const panel = document.getElementById(panelId);
+
+        if (!panel) return;
+
+        if (!Array.isArray(list) || list.length === 0) {
+
+            panel.innerHTML = `
+                <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
+                    タイムテーブル調整中またはデータがありません
+                </div>
+            `;
+
+            return;
+        }
+
+        panel.innerHTML = "";
+
+        list.forEach(item => {
+
+            const start = item.start || "";
+            const end = item.end || "";
+            const band = item.band || "";
+            const artist = item.artist || "";
+
+            panel.innerHTML += `
+                <div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
+
+                    <div>
+                        <h4 class="font-bold text-lg">
+                            ${band}
+                        </h4>
+
+                        <p class="text-sky-600 text-sm">
+                            ${artist}
+                        </p>
+                    </div>
+
+                    <div class="text-right">
+                        <div class="font-black text-pastel-accent">
+                            ${start}
+                        </div>
+
+                        <div class="text-xs text-slate-500">
+                            ～ ${end}
+                        </div>
+                    </div>
+
+                </div>
+            `;
+
+        });
+
+    }
+
+    loadTimetable();
+
+    // =========================
+    // Hero Slideshow
+    // =========================
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const heroImages = [
+            "IMG_8740.JPG",
+            "IMG_8405.JPG",
+            "IMG_6443.JPG",
+            "IMG_6397.JPG",
+            "IMG_7100.JPG",
+            "IMG_8781.JPG",
+            "IMG_7457.JPG",
+            "IMG_7498.JPG",
+            "IMG_8456.JPG",
+            "IMG_6438.JPG",
+            "IMG_6371.JPG",
+            "IMG_6117.JPG",
+            "IMG_5896.JPG",
+            "IMG_5820.JPG"
+        ];
+
+        const heroBgEl = document.getElementById("hero-bg");
+
+        if (!heroBgEl) return;
+
+        heroImages.forEach(src => {
+
+            const img = new Image();
+            img.src = src;
+
+        });
+
+        let current = 0;
+
+        heroBgEl.style.backgroundImage =
+            `url('${heroImages[current]}')`;
+
+        heroBgEl.classList.remove("opacity-0");
+
+        current = (current + 1) % heroImages.length;
+
+        setInterval(() => {
+
+            heroBgEl.classList.add("opacity-0");
+
+            const next = heroImages[current];
+
+            setTimeout(() => {
+
+                heroBgEl.style.backgroundImage =
+                    `url('${next}')`;
+
+                requestAnimationFrame(() => {
+
+                    requestAnimationFrame(() => {
+
+                        heroBgEl.classList.remove("opacity-0");
+
+                    });
+
+                });
+
+                current = (current + 1) % heroImages.length;
+
+            }, 1000);
+
+        }, 6000);
+
     });
 
-    let currentImgIndex = 0;
-
-    // 初回表示
-    heroBgEl.style.backgroundImage = `url('${heroImages[currentImgIndex]}')`;
-    heroBgEl.classList.remove("opacity-0");
-
-    currentImgIndex = (currentImgIndex + 1) % heroImages.length;
-
-    // 画像切替
-    setInterval(() => {
-
-        // 1. フェードアウト開始
-        heroBgEl.classList.add("opacity-0");
-
-        const nextSrc = heroImages[currentImgIndex];
-
-        // 2. 1秒後のフェードアウト完了時に画像を差し替える
-        setTimeout(() => {
-            heroBgEl.style.backgroundImage = `url('${nextSrc}')`;
-
-            // --- 改善点 2: ブラウザの描画完了を待ってから不透明度を戻す ---
-            // 二重の requestAnimationFrame を使うことで、画像の描画準備が整った次のフレームでフェードインが始まります
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    heroBgEl.classList.remove("opacity-0");
-                });
-            });
-
-            // インデックスを更新
-            currentImgIndex = (currentImgIndex + 1) % heroImages.length;
-
-        }, 1000); // フェードアウト時間（1秒）
-
-    }, 6000); // 6秒ごとに切り替え
-
-});
- </script>
+</script>
     
  <script src="js/news.js">   
  </script>
