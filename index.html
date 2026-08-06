@@ -647,34 +647,69 @@ transition">
 
 const API_URL = "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
 
-async function loadTimetable() {
+        async function loadTimetable() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
 
-    const response = await fetch(API_URL);
-    const data = await response.json();
+                createDay("day1-panel", data.day1);
+                createDay("day2-panel", data.day2);
+                createDay("day3-panel", data.day3);
+            } catch (err) {
+                console.error("タイムテーブルの読み込みに失敗しました:", err);
+            }
+        }
 
-    createDay("day1-panel", data.day1);
-    createDay("day2-panel", data.day2);
-    createDay("day3-panel", data.day3);
+        function createDay(panelId, list) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
 
-}
+            // データが無い場合・取得失敗時の表示
+            if (!list || !Array.isArray(list) || list.length === 0) {
+                panel.innerHTML = `
+                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
+                        タイムテーブル調整中またはデータがありません
+                    </div>
+                `;
+                return;
+            }
 
-function createDay(panelId, list) {
+            panel.innerHTML = "";
 
-    const panel = document.getElementById(panelId);
+            // アイテムのプロパティを安全に読み込み、HTMLカードを出力
+            list.forEach(item => {
+const start = item.start || "";
+const end = item.end || "";
+const band = item.band || "";
+const artist = item.artist || "";
 
-    panel.innerHTML = "";
+       panel.innerHTML += `
+<div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
 
-    list.forEach(item => {
+    <div>
+        <h4 class="font-bold text-lg">
+            ${band}
+        </h4>
 
-        panel.innerHTML += `
-            <!-- カード -->
-        `;
+        <p class="text-sky-600 text-sm">
+            ${artist}
+        </p>
+    </div>
 
-    });
+    <div class="text-right">
+        <div class="font-black text-pastel-accent">
+            ${start}
+        </div>
+        <div class="text-xs text-slate-500">
+            ～ ${end}
+        </div>
+    </div>
 
-}
+</div>
+`;
+        }
 
-loadTimetable();
+        loadTimetable();
 
 // =====================================
 // ここまで追加
