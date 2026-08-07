@@ -4,6 +4,56 @@
 
 const newsData = [
     {
+        id: 6,
+        type: "TIMETABLE",
+        badgeClass: "bg-purple-100 text-purple-800",
+        icon: "fa-clock",
+        title: "1日目のタイムテーブル変更のお知らせ",
+        date: "2026.08.08",
+        image: "",
+        content: `
+<p>1日目のバンドにキャンセルが出たため、タイムテーブルが変更になっています。出演者は特にスプレッドシートを要チェックです！</p>
+
+<p>👉 <a href="https://docs.google.com/spreadsheets/d/1T5ceV-Xi3gklo0-VRqMjyas0We1OMqlCKnGqanH3Qzw/edit?gid=798504110#gid=798504110" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">タイテ+要望表はこちら（Googleスプレッドシート）</a></p>
+
+<p><strong>【ローディミの開始時間】</strong><br>12時55分 → <strong>13時30分</strong> に変更となりましたので注意してください。</p>
+
+<p>また、タイムテーブルをWebサイトに載せるのに少し時間がかかっています。少々お待ちください。</p>
+`
+    },
+    {
+        id: 5,
+        type: "PARTY",
+        badgeClass: "bg-orange-100 text-orange-800",
+        icon: "fa-glass-cheers",
+        title: "打ち上げに関するお知らせ",
+        date: "2026.08.08",
+        image: "",
+        content: `
+<p>打ち上げの情報です！！</p>
+
+<ul class="list-disc ml-6">
+    <li><strong>日時：</strong>8月10日 21:30〜</li>
+    <li><strong>場所：</strong>ばほばほ</li>
+    <li><strong>予算：</strong>3000円</li>
+</ul>
+
+<p>このようになっています！！お忘れなく！！</p>
+`
+    },
+    {
+        id: 4,
+        type: "INFO",
+        badgeClass: "bg-sky-100 text-sky-800",
+        icon: "fa-circle-info",
+        title: "フライヤーやグッズ情報公開中",
+        date: "2026.08.08",
+        image: "",
+        content: `
+<p>THE LIVEのフライヤーやグッズ情報が、本Webページにて公開中です！ぜひご覧ください。</p>
+`
+    },
+    {
     id: 2,
     type: "IMPORTANT",
     badgeClass: "bg-red-100 text-red-800",
