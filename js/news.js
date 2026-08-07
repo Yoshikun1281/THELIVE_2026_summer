@@ -54,7 +54,7 @@ const newsData = [
 `
     },
     {
-    id: 2,
+    id: 3,
     type: "IMPORTANT",
     badgeClass: "bg-red-100 text-red-800",
     icon: "fa-triangle-exclamation",
@@ -72,7 +72,7 @@ const newsData = [
 `
 },
     {
-    id: 3,
+    id: 2,
     type: "EVENT",
     badgeClass: "bg-pink-100 text-pink-800",
     icon: "fa-music",
@@ -90,7 +90,7 @@ const newsData = [
 `
 },
     {
-    id: 2,
+    id: 1,
     type: "IMPORTANT",
     badgeClass: "bg-red-100 text-red-800",
     icon: "fa-triangle-exclamation",
