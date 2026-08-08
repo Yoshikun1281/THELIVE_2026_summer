@@ -1096,21 +1096,19 @@ async function loadDay(day) {
 
 
         // JSONに変換
-        const timetable =
-            await response.json();
+   const data = await response.json();
 
+console.log(`DAY ${day} API response:`, data);
 
-        console.log(
-            `DAY ${day} timetable:`,
-            timetable
-        );
+// day1 / day2 / day3 の中から該当するデータを取り出す
+const timetable = data[`day${day}`];
 
+console.log(`DAY ${day} timetable:`, timetable);
 
-        // タイムテーブルを表示
-        createTimetable(
-            timetable,
-            day
-        );
+createTimetable(
+    timetable,
+    day
+);
 
 
     } catch (error) {
