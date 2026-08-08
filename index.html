@@ -68,6 +68,404 @@
         .opacity-0 {
             opacity: 0;
         }
+        /* =========================================================
+   THE LIVE 2026 SUMMER
+   TIMETABLE DESIGN
+========================================================= */
+
+/* -------------------------
+   Timetable Background
+------------------------- */
+
+.timetable-bg {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0) 32%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0) 35%
+        ),
+        linear-gradient(
+            135deg,
+            #edf8ff 0%,
+            #e2f4ff 35%,
+            #e9f8ff 65%,
+            #e5f7f3 100%
+        );
+}
+
+/* 背景に薄い装飾を追加 */
+
+.timetable-bg::before {
+    content: "";
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    top: -180px;
+    right: -120px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+.timetable-bg::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    bottom: -150px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   Timetable List
+------------------------- */
+
+.timetable-list {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* -------------------------
+   Timetable Card
+------------------------- */
+
+.timetable-card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 190px minmax(0, 1fr);
+
+    min-height: 140px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid rgba(148, 197, 225, 0.35);
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 8px 25px rgba(56, 130, 170, 0.08),
+        0 2px 6px rgba(56, 130, 170, 0.05);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s ease;
+}
+
+.timetable-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 38px rgba(56, 130, 170, 0.14),
+        0 4px 10px rgba(56, 130, 170, 0.07);
+}
+
+
+/* -------------------------
+   Left : Time
+------------------------- */
+
+.timetable-time {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224, 242, 254, 0.95),
+            rgba(207, 239, 255, 0.72)
+        );
+
+    border-right: 1px solid rgba(125, 190, 220, 0.25);
+}
+
+.timetable-time-start {
+    font-family:
+        'Futura',
+        'Jost',
+        sans-serif;
+
+    font-size: clamp(
+        2.2rem,
+        4vw,
+        3.4rem
+    );
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -0.05em;
+
+    color: #075985;
+
+    white-space: nowrap;
+}
+
+.timetable-time-end {
+    margin-top: 10px;
+
+    font-family:
+        'Futura',
+        'Jost',
+        sans-serif;
+
+    font-size: 0.95rem;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+    white-space: nowrap;
+}
+
+
+/* -------------------------
+   Right : Band Information
+------------------------- */
+
+.timetable-info {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    padding:
+        24px
+        34px;
+}
+
+.timetable-band {
+    font-size: clamp(
+        1.6rem,
+        3vw,
+        2.6rem
+    );
+
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -0.035em;
+
+    color: #0f172a;
+
+    overflow-wrap: anywhere;
+}
+
+.timetable-artist {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 12px;
+
+    padding-top: 11px;
+
+    border-top:
+        1px dashed
+        rgba(14, 165, 233, 0.38);
+
+    font-size: clamp(
+        0.95rem,
+        1.5vw,
+        1.15rem
+    );
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    color: #0284c7;
+
+    overflow-wrap: anywhere;
+}
+
+.timetable-artist i {
+    flex-shrink: 0;
+
+    font-size: 0.85em;
+}
+
+
+/* -------------------------
+   Day Panel
+------------------------- */
+
+.day-panel {
+    position: relative;
+
+    padding: 18px;
+
+    border-radius: 32px;
+}
+
+
+/* -------------------------
+   Day Tabs
+------------------------- */
+
+.day-tab {
+    min-width: 130px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.day-tab:hover {
+    transform: translateY(-2px);
+}
+
+
+/* -------------------------
+   Mobile
+------------------------- */
+
+@media (max-width: 768px) {
+
+    .timetable-card {
+        grid-template-columns: 135px minmax(0, 1fr);
+
+        min-height: 120px;
+
+        border-radius: 22px;
+    }
+
+    .timetable-time {
+        padding: 15px 8px;
+    }
+
+    .timetable-time-start {
+        font-size: 2rem;
+    }
+
+    .timetable-time-end {
+        font-size: 0.8rem;
+
+        margin-top: 7px;
+    }
+
+    .timetable-info {
+        padding: 20px 20px;
+    }
+
+    .timetable-band {
+        font-size: 1.5rem;
+    }
+
+    .timetable-artist {
+        font-size: 0.9rem;
+
+        margin-top: 8px;
+
+        padding-top: 8px;
+    }
+
+    .day-panel {
+        padding: 12px;
+    }
+}
+
+
+/* -------------------------
+   Small Mobile
+------------------------- */
+
+@media (max-width: 480px) {
+
+    .timetable-card {
+        grid-template-columns: 105px minmax(0, 1fr);
+
+        min-height: 105px;
+
+        border-radius: 18px;
+    }
+
+    .timetable-time {
+        padding: 12px 5px;
+    }
+
+    .timetable-time-start {
+        font-size: 1.65rem;
+
+        letter-spacing: -0.06em;
+    }
+
+    .timetable-time-end {
+        font-size: 0.7rem;
+    }
+
+    .timetable-info {
+        padding: 17px 15px;
+    }
+
+    .timetable-band {
+        font-size: 1.25rem;
+    }
+
+    .timetable-artist {
+        font-size: 0.78rem;
+
+        gap: 6px;
+    }
+
+    .day-panel {
+        padding: 8px;
+    }
+}
     </style>
 </head>
 <body class="font-sans antialiased text-pastel-text selection:bg-pastel-sky">
@@ -415,15 +813,37 @@
                     </button>
                 </div>
 
-                <!-- Day 1 Panel -->
-                <div id="day1-panel" class="day-panel space-y-4"></div>
+              <!-- =========================
+     DAY 1
+========================= -->
 
-                <!-- Day 2 Panel -->
-                <div id="day2-panel" class="day-panel hidden space-y-4"></div>
+<div
+    id="day1-panel"
+    class="day-panel timetable-bg"
+>
+</div>
 
-                <!-- Day 3 Panel -->
-                <div id="day3-panel" class="day-panel hidden space-y-4"></div>
 
+<!-- =========================
+     DAY 2
+========================= -->
+
+<div
+    id="day2-panel"
+    class="day-panel timetable-bg hidden"
+>
+</div>
+
+
+<!-- =========================
+     DAY 3
+========================= -->
+
+<div
+    id="day3-panel"
+    class="day-panel timetable-bg hidden"
+>
+</div>
             </div>
 
         </div>
@@ -557,89 +977,344 @@
                 });
             });
         }
+// ===============================
+// THE LIVE Timetable API
+// ===============================
 
-        // =========================
-        // Day Switch
-        // =========================
-        function switchDay(dayNum) {
-            for (let i = 1; i <= 3; i++) {
-                const panel = document.getElementById(`day${i}-panel`);
-                const tab = document.getElementById(`day${i}-tab`);
+const API_URL =
+    "https://script.google.com/macros/s/AKfycby8W9mOGSUR2fIRg5Zb-Ae_aXMG4_UUOzch1EoXCkTZx61KvjNUpM144au2OONwCYiVsA/exec";
 
-                if (i === dayNum) {
-                    panel.classList.remove("hidden");
-                    tab.classList.add("bg-pastel-accent", "text-white", "shadow-sm");
-                    tab.classList.remove("bg-white", "text-slate-600", "hover:bg-slate-100");
-                } else {
-                    panel.classList.add("hidden");
-                    tab.classList.remove("bg-pastel-accent", "text-white", "shadow-sm");
-                    tab.classList.add("bg-white", "text-slate-600", "hover:bg-slate-100");
-                }
-            }
+
+// ===============================
+// DAY切り替え
+// ===============================
+
+async function switchDay(dayNum) {
+
+    // DAYの表示を切り替える
+    for (let i = 1; i <= 3; i++) {
+
+        const panel =
+            document.getElementById(`day${i}-panel`);
+
+        const tab =
+            document.getElementById(`day${i}-tab`);
+
+        if (!panel || !tab) continue;
+
+
+        if (i === dayNum) {
+
+            // 選択したDAYを表示
+            panel.classList.remove("hidden");
+
+            tab.classList.add(
+                "bg-pastel-accent",
+                "text-white",
+                "shadow-sm"
+            );
+
+            tab.classList.remove(
+                "bg-white",
+                "text-slate-600",
+                "hover:bg-slate-100"
+            );
+
+        } else {
+
+            // 他のDAYを非表示
+            panel.classList.add("hidden");
+
+            tab.classList.remove(
+                "bg-pastel-accent",
+                "text-white",
+                "shadow-sm"
+            );
+
+            tab.classList.add(
+                "bg-white",
+                "text-slate-600",
+                "hover:bg-slate-100"
+            );
         }
+    }
 
-        // =========================
-        // Timetable API
-        // =========================
-        const API_URL = "https://script.google.com/macros/s/AKfycbzMvsDjh4W3-rdKsRVddh70auhBp3sN9ueAoEHPNTTUwBG9XB5t0dt6_xGIAVspIlqpQg/exec";
 
-        async function loadTimetable() {
-            try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
+    // 選択したDAYのデータを取得
+    await loadDay(dayNum);
+}
 
-                console.log(data);
 
-                createDay("day1-panel", data.day1);
-                createDay("day2-panel", data.day2);
-                createDay("day3-panel", data.day3);
-            } catch (err) {
-                console.error(err);
-            }
-        }
+// ===============================
+// APIからタイムテーブル取得
+// ===============================
 
-        function createDay(panelId, list) {
-            const panel = document.getElementById(panelId);
-            if (!panel) return;
+async function loadDay(day) {
 
-            if (!Array.isArray(list) || list.length === 0) {
-                panel.innerHTML = `
-                    <div class="bg-pastel-bg border-2 border-dashed border-slate-300/80 rounded-3xl p-8 text-center text-slate-500 text-sm">
-                        タイムテーブル調整中またはデータがありません
-                    </div>
-                `;
-                return;
-            }
+    const panel =
+        document.getElementById(`day${day}-panel`);
 
-            panel.innerHTML = "";
+    if (!panel) return;
 
-            list.forEach(item => {
-                const start = item.start || item.time || "";
-                const end = item.end || "";
-                const band = item.band || item.name || item.bandName || "";
-                const artist = item.artist || item.copy || "";
 
-                panel.innerHTML += `
-                    <div class="bg-pastel-bg p-4 sm:p-5 rounded-2xl border border-slate-200 flex justify-between items-center">
-                        <div>
-                            <h4 class="font-bold text-lg text-slate-800">
-                                ${band}
-                            </h4>
-                            ${artist ? `<p class="text-sky-600 text-sm flex items-center gap-1.5 mt-0.5"><i class="fa-solid fa-music text-[10px]"></i> ${artist}</p>` : ''}
-                        </div>
-                        <div class="text-right shrink-0 ml-4">
-                            <div class="font-black text-pastel-accent">
-                                ${start}
+    // 読み込み中
+    panel.innerHTML = `
+        <div class="
+            flex
+            items-center
+            justify-center
+            min-h-[180px]
+            text-sky-600
+            font-bold
+        ">
+
+            <div class="text-center">
+
+                <i class="
+                    fa-solid
+                    fa-spinner
+                    fa-spin
+                    text-2xl
+                    mb-3
+                "></i>
+
+                <p>
+                    TIMETABLE LOADING...
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+
+    try {
+
+        // APIにアクセス
+        const response =
+            await fetch(`${API_URL}?day=${day}`);
+
+
+        // JSONに変換
+        const timetable =
+            await response.json();
+
+
+        console.log(
+            `DAY ${day} timetable:`,
+            timetable
+        );
+
+
+        // タイムテーブルを表示
+        createTimetable(
+            timetable,
+            day
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Timetable API Error:",
+            error
+        );
+
+
+        // エラー表示
+        panel.innerHTML = `
+            <div class="
+                bg-white/80
+                border
+                border-red-200
+                rounded-3xl
+                p-10
+                text-center
+            ">
+
+                <i class="
+                    fa-solid
+                    fa-triangle-exclamation
+                    text-red-400
+                    text-2xl
+                    mb-3
+                "></i>
+
+                <p class="
+                    text-slate-600
+                    font-bold
+                ">
+                    タイムテーブルを
+                    取得できませんでした。
+                </p>
+
+            </div>
+        `;
+    }
+}
+
+
+// ===============================
+// タイムテーブルをHTMLにする
+// ===============================
+
+function createTimetable(data, day) {
+
+    const panel =
+        document.getElementById(`day${day}-panel`);
+
+    if (!panel) return;
+
+
+    // データがない場合
+    if (!Array.isArray(data) || data.length === 0) {
+
+        panel.innerHTML = `
+            <div class="
+                bg-white/70
+                border-2
+                border-dashed
+                border-sky-200
+                rounded-3xl
+                p-10
+                text-center
+            ">
+
+                <div class="
+                    text-sky-400
+                    text-3xl
+                    mb-3
+                ">
+                    <i class="
+                        fa-regular
+                        fa-calendar-xmark
+                    "></i>
+                </div>
+
+                <p class="
+                    text-slate-500
+                    font-bold
+                ">
+                    タイムテーブル調整中
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    // タイムテーブルを生成
+    panel.innerHTML = `
+
+        <div class="timetable-list">
+
+            ${data.map(item => {
+
+                const start =
+                    item.start || "";
+
+                const end =
+                    item.end || "";
+
+                const band =
+                    item.band ||
+                    item.name ||
+                    "";
+
+                const artist =
+                    item.artist ||
+                    item.copy ||
+                    "";
+
+
+                return `
+
+                    <div class="timetable-card">
+
+                        <!-- 左：時間 -->
+
+                        <div class="timetable-time">
+
+                            <div class="timetable-time-start">
+                                ${escapeHTML(start)}
                             </div>
-                            ${end ? `<div class="text-xs text-slate-500">～ ${end}</div>` : ''}
+
+                            ${
+                                end
+                                ? `
+                                    <div class="timetable-time-end">
+                                        ～ ${escapeHTML(end)}
+                                    </div>
+                                `
+                                : ""
+                            }
+
                         </div>
+
+
+                        <!-- 右：バンド情報 -->
+
+                        <div class="timetable-info">
+
+                            <div class="timetable-band">
+                                ${escapeHTML(band)}
+                            </div>
+
+
+                            ${
+                                artist
+                                ? `
+                                    <div class="timetable-artist">
+
+                                        <i class="
+                                            fa-solid
+                                            fa-music
+                                        "></i>
+
+                                        <span>
+                                            ${escapeHTML(artist)}
+                                        </span>
+
+                                    </div>
+                                `
+                                : ""
+                            }
+
+                        </div>
+
                     </div>
+
                 `;
-            });
-        }
 
-        loadTimetable();
+            }).join("")}
 
+        </div>
+    `;
+}
+
+
+// ===============================
+// HTMLエスケープ
+// ===============================
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+// ===============================
+// 最初はDAY 1を表示
+// ===============================
+
+loadDay(1);
         // =========================
         // Hero Slideshow
         // =========================
