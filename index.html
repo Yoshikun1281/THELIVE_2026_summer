@@ -983,6 +983,7 @@
 
 const API_URL =
     "https://script.google.com/macros/s/AKfycbzMvsDjh4W3-rdKsRVddh70auhBp3sN9ueAoEHPNTTUwBG9XB5t0dt6_xGIAVspIlqpQg/exec";
+       
 
 
 // ===============================
@@ -1096,14 +1097,59 @@ async function loadDay(day) {
 
 
         // JSONに変換
-   const data = await response.json();
+const data =
+    await response.json();
 
-console.log(`DAY ${day} API response:`, data);
+console.log(
+    `DAY ${day} API response:`,
+    data
+);
 
-// day1 / day2 / day3 の中から該当するデータを取り出す
-const timetable = data[`day${day}`];
 
-console.log(`DAY ${day} timetable:`, timetable);
+// =========================
+// CURRENT BAND
+// =========================
+
+const bandName =
+    document.getElementById("band-name");
+
+const bandCopy =
+    document.getElementById("band-copy");
+
+
+// A9 → CURRENT BAND
+
+if (bandName) {
+
+    bandName.textContent =
+        data.currentBand || "???";
+
+}
+
+
+// A11 → COPY TARGET
+
+if (bandCopy) {
+
+    bandCopy.innerHTML = `
+
+        <i class="fa-solid fa-music text-xs"></i>
+
+        ${escapeHTML(
+            data.copyTarget || "???"
+        )}
+
+    `;
+
+}
+
+
+// =========================
+// TIMETABLE
+// =========================
+
+const timetable =
+    data[`day${day}`];
 
 createTimetable(
     timetable,
