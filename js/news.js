@@ -4,6 +4,20 @@
 
 const newsData = [
     {
+        id: 7,
+        type: "INFO",
+        badgeClass: "bg-sky-100 text-sky-800",
+        icon: "fa-circle-info",
+        title: "生配信に関するトラブルについて",
+        date: "2026.08.10",
+        image: "",
+        content: `
+<p>今回導入している生配信ですが、インターネット接続のトラブルにより3日目は一旦調整の方向になりました。</p>
+
+<p>回線の強いインターネットをテザリングできる方はMTR卓までお知らせください！</p>
+`
+    },
+    {
         id: 6,
         type: "TIMETABLE",
         badgeClass: "bg-purple-100 text-purple-800",
